@@ -29,13 +29,25 @@ void closeLoader() {
   }
 }
 
+class GetColor extends Color {
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll("#", "");
+    if (hexColor.length == 6) {
+      hexColor = "FF" + hexColor;
+    }
+    return int.parse(hexColor, radix: 16);
+  }
+
+  GetColor(final String hexColor) : super(_getColorFromHex(hexColor));
+}
+
 getSnackbarError(
   double paddingGlobal,
   ApiError apiError, {
   int seconds = 2,
 }) {
   Get.closeAllSnackbars();
-    closeLoader();
+  closeLoader();
 
   return Get.snackbar(
     apiError.error.title,
@@ -50,7 +62,7 @@ getSnackbarError(
 
 getSnackbarSuccess(ApiSuccess apiSuccess, paddingGlobal, {int seconds = 2}) {
   Get.closeAllSnackbars();
-    closeLoader();
+  closeLoader();
 
   return Get.snackbar(
     apiSuccess.success.title,
