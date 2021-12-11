@@ -3,6 +3,7 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:personal_packages/circular_progress_indicator.dart';
 
@@ -29,8 +30,8 @@ class BuildImageWithTap extends StatelessWidget {
         tag: image,
         child: BuildCachedNetworkImage(
           imageUrl: image,
-          height: height,
-          width: width,
+          height: height.h,
+          width: width.w,
           fit: fit,
           color: color,
         ),
@@ -163,8 +164,8 @@ class BuildCachedNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       fit: fit,
-      width: width,
-      height: height,
+      width: width.w,
+      height: height.h,
       imageUrl: imageUrl,
       progressIndicatorBuilder: (context, url, downloadProgress) => Center(
         child: BuildCircularProgressIndicator(

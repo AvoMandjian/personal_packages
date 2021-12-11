@@ -34,7 +34,8 @@ class BuildCachedNetworkImage extends StatelessWidget {
           color: color,
         ),
       ),
-      errorWidget: (context, url, error) => const Icon(LineIcons.exclamationCircle),
+      errorWidget: (context, url, error) =>
+          const Icon(LineIcons.exclamationCircle),
     );
   }
 }
