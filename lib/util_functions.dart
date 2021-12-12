@@ -29,7 +29,7 @@ void closeLoader() {
   }
 }
 
-class GetColor extends Color {
+class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
     if (hexColor.length == 6) {
@@ -38,15 +38,7 @@ class GetColor extends Color {
     return int.parse(hexColor, radix: 16);
   }
 
-  GetColor(final String hexColor) : super(_getColorFromHex(hexColor));
-}
-
-Color hexColor(String hexColor) {
-  hexColor = hexColor.toUpperCase().replaceAll("#", "");
-  if (hexColor.length == 6) {
-    hexColor = "FF" + hexColor;
-  }
-  return Color(int.parse(hexColor));
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
 }
 
 getSnackbarError(
