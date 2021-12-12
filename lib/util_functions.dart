@@ -41,6 +41,14 @@ class GetColor extends Color {
   GetColor(final String hexColor) : super(_getColorFromHex(hexColor));
 }
 
+Color hexColor(String hexColor) {
+  hexColor = hexColor.toUpperCase().replaceAll("#", "");
+  if (hexColor.length == 6) {
+    hexColor = "FF" + hexColor;
+  }
+  return Color(int.parse(hexColor));
+}
+
 getSnackbarError(
   double paddingGlobal,
   ApiError apiError, {
