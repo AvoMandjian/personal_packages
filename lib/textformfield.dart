@@ -14,6 +14,7 @@ class BuildTextFormField extends StatelessWidget {
   final TextCapitalization? textCapitalization;
   final TextStyle labelTextStyle;
   final TextStyle hintStyle;
+  final double? paddingBetweenLabelAndInput;
   const BuildTextFormField({
     Key? key,
     this.enabled = true,
@@ -27,6 +28,7 @@ class BuildTextFormField extends StatelessWidget {
     this.textCapitalization,
     required this.labelTextStyle,
     required this.hintStyle,
+    this.paddingBetweenLabelAndInput,
   }) : super(key: key);
 
   @override
@@ -44,6 +46,9 @@ class BuildTextFormField extends StatelessWidget {
             Text(
               labelText ?? hintText,
               style: labelTextStyle,
+            ),
+            SizedBox(
+              height: paddingBetweenLabelAndInput,
             ),
             TextFormField(
               textCapitalization: textCapitalization ?? TextCapitalization.none,
