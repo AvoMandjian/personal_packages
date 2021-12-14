@@ -69,6 +69,7 @@ class BuildImageOnTap extends StatelessWidget {
               Container(
                 width: context.width,
                 height: context.height / 2,
+                clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [

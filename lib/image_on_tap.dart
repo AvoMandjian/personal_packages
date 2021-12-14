@@ -25,6 +25,7 @@ class BuildImageOnTap extends StatelessWidget {
               Container(
                 width: context.width,
                 height: context.height / 2,
+                clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
@@ -62,7 +63,8 @@ class BuildImageOnTap extends StatelessWidget {
                               child: Text(
                                 'loading the image failed, click to reload',
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(color: Colors.red).copyWith(
+                                style:
+                                    const TextStyle(color: Colors.red).copyWith(
                                   decoration: TextDecoration.none,
                                 ),
                               ),
