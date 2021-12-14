@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildTextFormField extends StatelessWidget {
@@ -13,6 +12,8 @@ class BuildTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final double bottomPadding;
   final TextCapitalization? textCapitalization;
+  final TextStyle labelTextStyle;
+  final TextStyle hintStyle;
   const BuildTextFormField({
     Key? key,
     this.enabled = true,
@@ -24,6 +25,8 @@ class BuildTextFormField extends StatelessWidget {
     this.validator,
     this.bottomPadding = 23,
     this.textCapitalization,
+    required this.labelTextStyle,
+    required this.hintStyle,
   }) : super(key: key);
 
   @override
@@ -40,10 +43,7 @@ class BuildTextFormField extends StatelessWidget {
           children: [
             Text(
               labelText ?? hintText,
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontFamily: 'SegoeSemibold',
-              ),
+              style: labelTextStyle,
             ),
             TextFormField(
               textCapitalization: textCapitalization ?? TextCapitalization.none,
@@ -55,7 +55,7 @@ class BuildTextFormField extends StatelessWidget {
               controller: controller,
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: const TextStyle(color: Colors.red),
+                hintStyle: hintStyle,
               ),
             ),
           ],
