@@ -10,11 +10,11 @@ class BuildTextFormField extends StatelessWidget {
   final TextInputType? textInputType;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String?)? validator;
-  final double bottomPadding;
+  final int bottomPadding;
   final TextCapitalization? textCapitalization;
   final TextStyle labelTextStyle;
   final TextStyle hintStyle;
-  final double paddingBetweenLabelAndInput;
+  final int paddingBetweenLabelAndInput;
   const BuildTextFormField({
     Key? key,
     this.enabled = true,
@@ -24,11 +24,11 @@ class BuildTextFormField extends StatelessWidget {
     this.textInputType,
     this.inputFormatters,
     this.validator,
-    this.bottomPadding = 23,
+    this.bottomPadding = 0,
     this.textCapitalization,
     required this.labelTextStyle,
     required this.hintStyle,
-    this.paddingBetweenLabelAndInput = 0.0,
+    this.paddingBetweenLabelAndInput = 0,
   }) : super(key: key);
 
   @override
