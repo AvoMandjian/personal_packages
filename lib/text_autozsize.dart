@@ -8,10 +8,12 @@ class BuildText extends StatelessWidget {
     Key? key,
     required this.style,
     this.maxLines = 1,
+    this.textAlign,
   }) : super(key: key);
   final TextStyle style;
   final String text;
   final int maxLines;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class BuildText extends StatelessWidget {
       style: style,
       minFontSize: 1,
       maxLines: maxLines,
+      textAlign: textAlign,
     );
   }
 }
