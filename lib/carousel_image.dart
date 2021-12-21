@@ -15,7 +15,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
   final dynamic effectAnimatedSmoothIndicator;
   final dynamic controller;
   final EdgeInsetsGeometry paddingOfImage;
-  final int paddingBottomOfAnimatedSmoothIndicator;
+  final EdgeInsetsGeometry paddingOfSmoothPageIndicator;
   final Color backgroundColor;
 
   /// https://github.com/Milad-Akarie/smooth_page_indicator#effects ///
@@ -29,7 +29,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
     required this.effectAnimatedSmoothIndicator,
     required this.controller,
     required this.paddingOfImage,
-    required this.paddingBottomOfAnimatedSmoothIndicator,
+    required this.paddingOfSmoothPageIndicator,
     required this.backgroundColor,
   }) : super(key: key);
 
@@ -62,12 +62,14 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                   controller.activeCarouselIndex.value = index,
             ),
           ),
-          BuildSizedBoxHeight(height: paddingBottomOfAnimatedSmoothIndicator),
-          Obx(
-            () => AnimatedSmoothIndicator(
-              activeIndex: controller.activeCarouselIndex.value,
-              count: listOfImages.length,
-              effect: effectAnimatedSmoothIndicator,
+          Padding(
+            padding: paddingOfSmoothPageIndicator,
+            child: Obx(
+              () => AnimatedSmoothIndicator(
+                activeIndex: controller.activeCarouselIndex.value,
+                count: listOfImages.length,
+                effect: effectAnimatedSmoothIndicator,
+              ),
             ),
           ),
         ],
