@@ -44,7 +44,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
             },
           ).toList(),
           options: CarouselOptions(
-            height: Get.width,
+            height: widthOfImage.sp,
             viewportFraction: 1,
             onPageChanged: (index, reason) =>
                 controller.activeCarouselIndex.value = index,
