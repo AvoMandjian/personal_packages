@@ -13,6 +13,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
   final Color colorOfLoader;
   final dynamic effectAnimatedSmoothIndicator;
   final dynamic controller;
+  final EdgeInsetsGeometry paddingOfImage;
 
   /// https://github.com/Milad-Akarie/smooth_page_indicator#effects ///
 
@@ -24,6 +25,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
     required this.colorOfLoader,
     required this.effectAnimatedSmoothIndicator,
     required this.controller,
+    required this.paddingOfImage,
   }) : super(key: key);
 
   ///   final activeCarouselIndex = 1.obs; ///
@@ -35,11 +37,14 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
         CarouselSlider(
           items: listOfImages.map(
             (e) {
-              return BuildImageWithTap(
-                image: e,
-                width: widthOfImage.sp,
-                height: widthOfImage.sp,
-                colorOfLoader: colorOfLoader,
+              return Padding(
+                padding: paddingOfImage,
+                child: BuildImageWithTap(
+                  image: e,
+                  width: widthOfImage.sp,
+                  height: widthOfImage.sp,
+                  colorOfLoader: colorOfLoader,
+                ),
               );
             },
           ).toList(),
