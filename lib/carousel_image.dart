@@ -16,6 +16,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
   final dynamic controller;
   final EdgeInsetsGeometry paddingOfImage;
   final int paddingBottomOfAnimatedSmoothIndicator;
+  final Color backgroundColor;
 
   /// https://github.com/Milad-Akarie/smooth_page_indicator#effects ///
 
@@ -29,44 +30,48 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
     required this.controller,
     required this.paddingOfImage,
     required this.paddingBottomOfAnimatedSmoothIndicator,
+    required this.backgroundColor,
   }) : super(key: key);
 
   ///   final activeCarouselIndex = 1.obs; ///
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CarouselSlider(
-          items: listOfImages.map(
-            (e) {
-              return Padding(
-                padding: paddingOfImage,
-                child: BuildImageWithTap(
-                  image: e,
-                  width: widthOfImage.sp,
-                  height: widthOfImage.sp,
-                  colorOfLoader: colorOfLoader,
-                ),
-              );
-            },
-          ).toList(),
-          options: CarouselOptions(
-            height: widthOfImage.sp,
-            viewportFraction: 1,
-            onPageChanged: (index, reason) =>
-                controller.activeCarouselIndex.value = index,
+    return Container(
+      color: backgroundColor,
+      child: Column(
+        children: [
+          CarouselSlider(
+            items: listOfImages.map(
+              (e) {
+                return Padding(
+                  padding: paddingOfImage,
+                  child: BuildImageWithTap(
+                    image: e,
+                    width: widthOfImage.sp,
+                    height: widthOfImage.sp,
+                    colorOfLoader: colorOfLoader,
+                  ),
+                );
+              },
+            ).toList(),
+            options: CarouselOptions(
+              height: widthOfImage.sp,
+              viewportFraction: 1,
+              onPageChanged: (index, reason) =>
+                  controller.activeCarouselIndex.value = index,
+            ),
           ),
-        ),
-        BuildSizedBoxHeight(height: paddingBottomOfAnimatedSmoothIndicator),
-        Obx(
-          () => AnimatedSmoothIndicator(
-            activeIndex: controller.activeCarouselIndex.value,
-            count: listOfImages.length,
-            effect: effectAnimatedSmoothIndicator,
+          BuildSizedBoxHeight(height: paddingBottomOfAnimatedSmoothIndicator),
+          Obx(
+            () => AnimatedSmoothIndicator(
+              activeIndex: controller.activeCarouselIndex.value,
+              count: listOfImages.length,
+              effect: effectAnimatedSmoothIndicator,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
