@@ -100,12 +100,11 @@ class BuildImageOnTap extends StatelessWidget {
                       ),
                       shape: BoxShape.circle,
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.all(15.0.sp),
+                    child: Center(
                       child: Icon(
                         CupertinoIcons.xmark,
                         color: Colors.black,
-                        size: 15.0.sp,
+                        size: 13.0.sp,
                       ),
                     ),
                   ),
