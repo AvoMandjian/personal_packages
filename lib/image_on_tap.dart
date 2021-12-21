@@ -88,18 +88,23 @@ class BuildImageOnTap extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () => Get.back(),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      color: Colors.black,
+                child: Padding(
+                  padding: EdgeInsets.all(15.0.sp),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Colors.black,
+                      ),
+                      shape: BoxShape.circle,
                     ),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(15.0.sp),
-                    child: const Icon(
-                      CupertinoIcons.xmark,
+                    child: Padding(
+                      padding: EdgeInsets.all(15.0.sp),
+                      child: Icon(
+                        CupertinoIcons.xmark,
+                        color: Colors.black,
+                        size: 15.0.sp,
+                      ),
                     ),
                   ),
                 ),
