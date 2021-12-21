@@ -22,6 +22,8 @@ dependencies:
   line_icons:
   onesignal_flutter:
   auto_size_text:
+  carousel_slider:
+  smooth_page_indicator:
 
 dev_dependencies:
   flutter_test:
