@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:personal_packages/circular_progress_indicator.dart';
 
@@ -11,7 +11,7 @@ class BuildImageWithTap extends StatelessWidget {
   final String image;
   final double width;
   final double height;
-  final Color color;
+  final Color colorOfLoader;
   final BoxFit? fit;
 
   const BuildImageWithTap({
@@ -20,7 +20,7 @@ class BuildImageWithTap extends StatelessWidget {
     required this.width,
     required this.height,
     this.fit = BoxFit.cover,
-    required this.color,
+    required this.colorOfLoader,
   }) : super(key: key);
 
   @override
@@ -33,7 +33,7 @@ class BuildImageWithTap extends StatelessWidget {
           height: height.h,
           width: width.w,
           fit: fit,
-          color: color,
+          colorOfLoader: colorOfLoader,
         ),
       ),
       onTap: () {
@@ -92,25 +92,17 @@ class BuildImageOnTap extends StatelessWidget {
                       switch (state.extendedImageLoadState) {
                         case LoadState.loading:
                           return const Center(
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                Colors.red,
-                              ),
-                            ),
+                            child: CircularProgressIndicator(),
                           );
                         case LoadState.completed:
                           return null;
                         case LoadState.failed:
                           return GestureDetector(
                             onTap: () => state.reLoadImage(),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 'loading the image failed, click to reload',
                                 textAlign: TextAlign.center,
-                                style:
-                                    const TextStyle(color: Colors.red).copyWith(
-                                  decoration: TextDecoration.none,
-                                ),
                               ),
                             ),
                           );
@@ -151,14 +143,14 @@ class BuildCachedNetworkImage extends StatelessWidget {
   final double width;
   final double height;
   final BoxFit? fit;
-  final Color color;
+  final Color colorOfLoader;
   const BuildCachedNetworkImage({
     Key? key,
     required this.imageUrl,
     required this.width,
     required this.height,
     this.fit = BoxFit.cover,
-    required this.color,
+    required this.colorOfLoader,
   }) : super(key: key);
 
   @override
@@ -171,7 +163,7 @@ class BuildCachedNetworkImage extends StatelessWidget {
       progressIndicatorBuilder: (context, url, downloadProgress) => Center(
         child: BuildCircularProgressIndicator(
           value: downloadProgress.progress,
-          color: color,
+          color: colorOfLoader,
         ),
       ),
       errorWidget: (context, url, error) =>
