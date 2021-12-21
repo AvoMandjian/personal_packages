@@ -125,10 +125,10 @@ class BuildImageOnTap extends StatelessWidget {
               GestureDetector(
                 onTap: () => Get.back(),
                 child: Padding(
-                  padding: EdgeInsets.all(15.0.sp),
+                  padding: const EdgeInsets.all(15.0),
                   child: Container(
-                    width: 20.sp,
-                    height: 20.sp,
+                    width: 20,
+                    height: 20,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
@@ -136,11 +136,11 @@ class BuildImageOnTap extends StatelessWidget {
                       ),
                       shape: BoxShape.circle,
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Icon(
                         CupertinoIcons.xmark,
                         color: Colors.black,
-                        size: 13.0.sp,
+                        size: 13.0,
                       ),
                     ),
                   ),
