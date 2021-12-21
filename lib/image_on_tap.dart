@@ -91,6 +91,8 @@ class BuildImageOnTap extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(15.0.sp),
                   child: Container(
+                    width: 20.sp,
+                    height: 20.sp,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
