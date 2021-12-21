@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -123,10 +124,20 @@ class BuildImageOnTap extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () => Get.back(),
-                child: const Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: Icon(
-                    LineIcons.timesCircle,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.black,
+                    ),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: Icon(
+                      CupertinoIcons.xmark,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),

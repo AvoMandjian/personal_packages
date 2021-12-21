@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:extended_image/extended_image.dart';
@@ -87,10 +88,19 @@ class BuildImageOnTap extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () => Get.back(),
-                child: Padding(
-                  padding: EdgeInsets.all(15.0.sp),
-                  child: const Icon(
-                    LineIcons.timesCircle,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Colors.black,
+                    ),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(15.0.sp),
+                    child: const Icon(
+                      CupertinoIcons.xmark,
+                    ),
                   ),
                 ),
               ),
