@@ -95,4 +95,35 @@ Future<String> getcountryCodeFromIpInfo() async {
   return countryCode;
 }
 
+class BuildSizedBoxWidth extends StatelessWidget {
+  const BuildSizedBoxWidth({
+    Key? key,
+    required this.width,
+  }) : super(key: key);
+
+  final int width;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width.w,
+    );
+  }
+}
+
+class BuildSizedBoxHeight extends StatelessWidget {
+  final int height;
+  const BuildSizedBoxHeight({
+    Key? key,
+    required this.height,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height.h,
+    );
+  }
+}
+
 void closeKeyboard() => FocusManager.instance.primaryFocus!.unfocus();
