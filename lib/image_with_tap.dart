@@ -125,7 +125,7 @@ class BuildImageOnTap extends StatelessWidget {
               GestureDetector(
                 onTap: () => Get.back(),
                 child: Padding(
-                  padding: EdgeInsets.all(0.sp),
+                  padding: EdgeInsets.all(10.sp),
                   child: Container(
                     width: 20.sp,
                     height: 20.sp,
