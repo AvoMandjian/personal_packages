@@ -14,7 +14,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
   final Color colorOfLoader;
   final dynamic effectAnimatedSmoothIndicator;
   final dynamic controller;
-  final EdgeInsetsGeometry paddingOfImage;
+  final EdgeInsetsGeometry paddingOfCarousel;
   final EdgeInsetsGeometry paddingOfSmoothPageIndicator;
   final Color backgroundColor;
 
@@ -28,7 +28,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
     required this.colorOfLoader,
     required this.effectAnimatedSmoothIndicator,
     required this.controller,
-    required this.paddingOfImage,
+    required this.paddingOfCarousel,
     required this.paddingOfSmoothPageIndicator,
     required this.backgroundColor,
   }) : super(key: key);
@@ -41,25 +41,25 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
       color: backgroundColor,
       child: Column(
         children: [
-          CarouselSlider(
-            items: listOfImages.map(
-              (e) {
-                return Padding(
-                  padding: paddingOfImage,
-                  child: BuildImageWithTap(
+          Padding(
+            padding: paddingOfCarousel,
+            child: CarouselSlider(
+              items: listOfImages.map(
+                (e) {
+                  return BuildImageWithTap(
                     image: e,
                     width: widthOfImage.sp,
                     height: widthOfImage.sp,
                     colorOfLoader: colorOfLoader,
-                  ),
-                );
-              },
-            ).toList(),
-            options: CarouselOptions(
-              height: widthOfImage.sp,
-              viewportFraction: 1,
-              onPageChanged: (index, reason) =>
-                  controller.activeCarouselIndex.value = index,
+                  );
+                },
+              ).toList(),
+              options: CarouselOptions(
+                height: widthOfImage.sp,
+                viewportFraction: 1,
+                onPageChanged: (index, reason) =>
+                    controller.activeCarouselIndex.value = index,
+              ),
             ),
           ),
           Padding(
