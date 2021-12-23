@@ -14,19 +14,23 @@ import 'package:personal_packages/models/api_success_model.dart';
 import 'package:http/http.dart' as http;
 
 void openLoader(Color colorOfLoader) {
-  Get.dialog(
-    BuildCircularProgressIndicator(
-      color: colorOfLoader,
+  Get.to(
+    () => Container(
+      color: Colors.black45,
+      child: BuildCircularProgressIndicator(
+        color: colorOfLoader,
+      ),
     ),
-    barrierColor: Colors.black26,
-    barrierDismissible: false,
+    opaque: false,
+    fullscreenDialog: true,
+    duration: const Duration(
+      seconds: 0,
+    ),
   );
 }
 
 void closeLoader() {
-  if (Get.isOverlaysOpen) {
-    closeLoader();
-  }
+  Get.back();
 }
 
 class HexColor extends Color {

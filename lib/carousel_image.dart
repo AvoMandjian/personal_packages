@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:personal_packages/util_functions.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:personal_packages/image_with_tap.dart';

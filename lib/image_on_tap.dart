@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:line_icons/line_icons.dart';
 
 class BuildImageOnTap extends StatelessWidget {
   final String image;
