@@ -13,7 +13,7 @@ class BuildBackgroundParallax extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Flow(
-      delegate: ParallaxFlowDelegate(
+      delegate: _ParallaxFlowDelegate(
         scrollable: Scrollable.of(context)!,
         listItemContext: context,
         backgroundImageKey: backgroundImageKey,
@@ -25,8 +25,8 @@ class BuildBackgroundParallax extends StatelessWidget {
   }
 }
 
-class ParallaxFlowDelegate extends FlowDelegate {
-  ParallaxFlowDelegate({
+class _ParallaxFlowDelegate extends FlowDelegate {
+  _ParallaxFlowDelegate({
     required this.scrollable,
     required this.listItemContext,
     required this.backgroundImageKey,
@@ -80,35 +80,36 @@ class ParallaxFlowDelegate extends FlowDelegate {
   }
 
   @override
-  bool shouldRepaint(ParallaxFlowDelegate oldDelegate) {
+  bool shouldRepaint(_ParallaxFlowDelegate oldDelegate) {
     return scrollable != oldDelegate.scrollable ||
         listItemContext != oldDelegate.listItemContext ||
         backgroundImageKey != oldDelegate.backgroundImageKey;
   }
 }
 
-class Parallax extends SingleChildRenderObjectWidget {
-  const Parallax({
+// ignore: unused_element
+class _Parallax extends SingleChildRenderObjectWidget {
+  const _Parallax({
     required Widget background,
   }) : super(child: background);
 
   @override
   RenderObject createRenderObject(BuildContext context) {
-    return RenderParallax(scrollable: Scrollable.of(context)!);
+    return _RenderParallax(scrollable: Scrollable.of(context)!);
   }
 
   @override
   void updateRenderObject(
-      BuildContext context, covariant RenderParallax renderObject) {
+      BuildContext context, covariant _RenderParallax renderObject) {
     renderObject.scrollable = Scrollable.of(context)!;
   }
 }
 
-class ParallaxParentData extends ContainerBoxParentData<RenderBox> {}
+class _ParallaxParentData extends ContainerBoxParentData<RenderBox> {}
 
-class RenderParallax extends RenderBox
+class _RenderParallax extends RenderBox
     with RenderObjectWithChildMixin<RenderBox>, RenderProxyBoxMixin {
-  RenderParallax({
+  _RenderParallax({
     required ScrollableState scrollable,
   }) : _scrollable = scrollable;
 
@@ -142,8 +143,8 @@ class RenderParallax extends RenderBox
 
   @override
   void setupParentData(covariant RenderObject child) {
-    if (child.parentData is! ParallaxParentData) {
-      child.parentData = ParallaxParentData();
+    if (child.parentData is! _ParallaxParentData) {
+      child.parentData = _ParallaxParentData();
     }
   }
 
@@ -159,7 +160,7 @@ class RenderParallax extends RenderBox
     background.layout(backgroundImageConstraints, parentUsesSize: true);
 
     // Set the background's local offset, which is zero.
-    (background.parentData as ParallaxParentData).offset = Offset.zero;
+    (background.parentData as _ParallaxParentData).offset = Offset.zero;
   }
 
   @override
@@ -192,7 +193,7 @@ class RenderParallax extends RenderBox
     // Paint the background.
     context.paintChild(
         background,
-        (background.parentData as ParallaxParentData).offset +
+        (background.parentData as _ParallaxParentData).offset +
             offset +
             Offset(0.0, childRect.top));
   }
