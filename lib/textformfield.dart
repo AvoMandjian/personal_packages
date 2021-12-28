@@ -12,7 +12,8 @@ class BuildTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final int bottomPadding;
   final TextCapitalization? textCapitalization;
-  final TextStyle labelTextStyle;
+  final TextStyle? labelTextStyle;
+  final TextStyle? hintTextStyle;
   final int paddingBetweenLabelAndInput;
   final Widget? suffixIcon;
   const BuildTextFormField({
@@ -26,7 +27,8 @@ class BuildTextFormField extends StatelessWidget {
     this.validator,
     this.bottomPadding = 0,
     this.textCapitalization,
-    required this.labelTextStyle,
+    this.labelTextStyle,
+    this.hintTextStyle,
     this.paddingBetweenLabelAndInput = 0,
     this.suffixIcon,
   }) : super(key: key);
@@ -60,6 +62,7 @@ class BuildTextFormField extends StatelessWidget {
               controller: controller,
               decoration: InputDecoration(
                 hintText: hintText,
+                hintStyle: hintTextStyle,
                 suffixIcon: suffixIcon,
               ),
             ),
