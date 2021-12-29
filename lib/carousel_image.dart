@@ -94,7 +94,6 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                           child: InkWell(
                             onTap: () => _carouselController.previousPage(),
                             child: Align(
-                              alignment: Alignment.centerLeft,
                               child: Icon(
                                 CupertinoIcons.chevron_left,
                                 size: 18.sp,
@@ -111,7 +110,6 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                           child: InkWell(
                             onTap: () => _carouselController.nextPage(),
                             child: Align(
-                              alignment: Alignment.centerLeft,
                               child: Icon(
                                 CupertinoIcons.right_chevron,
                                 size: 18.sp,
