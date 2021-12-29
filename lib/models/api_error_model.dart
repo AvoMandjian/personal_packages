@@ -1,10 +1,31 @@
 import 'dart:convert';
 
+import 'dart:developer';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
+
 // To parse this JSON data, do
 //
 //     final apiError = apiErrorFromJson(jsonString);
 
-ApiError apiErrorFromJson(String str) => ApiError.fromJson(json.decode(str));
+ApiError apiErrorFromJson(
+  String str, {
+  bool enableSendEmail = false,
+}) {
+  log('ERROR:\n\n\n$str\n\n\n');
+  // SEND EMAIL MANUALLY
+  if (enableSendEmail) {
+    final Email email = Email(
+      body: str,
+      subject: 'Error',
+      recipients: ['avo@thewebaddicts.com'],
+      isHTML: false,
+    );
+    FlutterEmailSender.send(email);
+  }
+  // SEND EMAIL MANUALLY
+
+  return ApiError.fromJson(json.decode(str));
+}
 
 String apiErrorToJson(ApiError data) => json.encode(data.toJson());
 
