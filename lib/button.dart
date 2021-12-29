@@ -9,7 +9,7 @@ class BuildButton extends StatelessWidget {
   final double width;
   final int height;
   final void Function()? onTap;
-  final BorderRadius? borderRadius;
+  final BorderRadius borderRadius;
   final AlignmentGeometry? alignment;
   const BuildButton({
     Key? key,
@@ -19,7 +19,7 @@ class BuildButton extends StatelessWidget {
     this.width = double.infinity,
     this.height = 60,
     this.onTap,
-    this.borderRadius,
+    this.borderRadius = BorderRadius.zero,
     this.alignment,
   }) : super(key: key);
 
