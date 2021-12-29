@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
+import 'package:pinch_zoom/pinch_zoom.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:personal_packages/image_with_tap.dart';
 
@@ -52,9 +52,10 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
               items: isPinchToZoom
                   ? listOfImages
                       .map(
-                        (e) => PinchZoomImage(
-                          zoomedBackgroundColor: Colors.black45,
-                          image: BuildCachedNetworkImage(
+                        (e) => PinchZoom(
+                          resetDuration: const Duration(milliseconds: 100),
+                          maxScale: 2.5,
+                          child: BuildCachedNetworkImage(
                             imageUrl: e,
                             width: widthOfImage.sp,
                             height: widthOfImage.sp,
