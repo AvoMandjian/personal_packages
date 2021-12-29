@@ -52,7 +52,6 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                         (e) => ZoomOverlay(
                           minScale: 0.5, // Optional
                           maxScale: 2.0, // Optional
-                          twoTouchOnly: true, // Defaults to false
                           child: BuildCachedNetworkImage(
                             imageUrl: e,
                             width: widthOfImage.sp,
