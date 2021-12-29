@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import 'package:personal_packages/image_with_tap.dart';
 
 final CarouselController _carouselController = CarouselController();
@@ -55,7 +54,6 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                       .map(
                         (e) => PinchZoomImage(
                           zoomedBackgroundColor: Colors.black45,
-                          hideStatusBarWhileZooming: true,
                           image: BuildCachedNetworkImage(
                             imageUrl: e,
                             width: widthOfImage.sp,
@@ -95,9 +93,12 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () => _carouselController.previousPage(),
-                            child: const Align(
+                            child: Align(
                               alignment: Alignment.centerLeft,
-                              child: Icon(CupertinoIcons.chevron_left),
+                              child: Icon(
+                                CupertinoIcons.chevron_left,
+                                size: 18.sp,
+                              ),
                             ),
                           ),
                         ),
@@ -109,10 +110,11 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () => _carouselController.nextPage(),
-                            child: const Align(
+                            child: Align(
                               alignment: Alignment.centerLeft,
                               child: Icon(
                                 CupertinoIcons.right_chevron,
+                                size: 18.sp,
                               ),
                             ),
                           ),
