@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:personal_packages/image_with_tap.dart';
+import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
 
 class BuildCarouselWithPageIndicator extends StatelessWidget {
   final int widthOfImage;
@@ -16,6 +17,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
   final EdgeInsetsGeometry paddingOfCarousel;
   final EdgeInsetsGeometry paddingOfSmoothPageIndicator;
   final Color backgroundColor;
+  final bool isPinchToZoom;
 
   /// https://github.com/Milad-Akarie/smooth_page_indicator#effects ///
 
@@ -30,6 +32,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
     required this.paddingOfCarousel,
     required this.paddingOfSmoothPageIndicator,
     required this.backgroundColor,
+    this.isPinchToZoom = false,
   }) : super(key: key);
 
   ///   final activeCarouselIndex = 1.obs; ///
@@ -43,16 +46,32 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
           Padding(
             padding: paddingOfCarousel,
             child: CarouselSlider(
-              items: listOfImages.map(
-                (e) {
-                  return BuildImageWithTap(
-                    image: e,
-                    width: widthOfImage.sp,
-                    height: widthOfImage.sp,
-                    colorOfLoader: colorOfLoader,
-                  );
-                },
-              ).toList(),
+              items: isPinchToZoom
+                  ? listOfImages
+                      .map(
+                        (e) => ZoomOverlay(
+                          minScale: 0.5, // Optional
+                          maxScale: 2.0, // Optional
+                          twoTouchOnly: true, // Defaults to false
+                          child: BuildCachedNetworkImage(
+                            imageUrl: e,
+                            width: widthOfImage.sp,
+                            height: widthOfImage.sp,
+                            colorOfLoader: colorOfLoader,
+                          ),
+                        ),
+                      )
+                      .toList()
+                  : listOfImages.map(
+                      (e) {
+                        return BuildImageWithTap(
+                          image: e,
+                          width: widthOfImage.sp,
+                          height: widthOfImage.sp,
+                          colorOfLoader: colorOfLoader,
+                        );
+                      },
+                    ).toList(),
               options: CarouselOptions(
                 height: widthOfImage.sp,
                 viewportFraction: 1,
