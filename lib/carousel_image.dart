@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:personal_packages/image_with_tap.dart';
@@ -49,10 +50,10 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
               items: isPinchToZoom
                   ? listOfImages
                       .map(
-                        (e) => ZoomOverlay(
-                          minScale: 0.5, // Optional
-                          maxScale: 2.0, // Optional
-                          child: BuildCachedNetworkImage(
+                        (e) => PinchZoomImage(
+                          zoomedBackgroundColor: Colors.black45,
+                          hideStatusBarWhileZooming: true,
+                          image: BuildCachedNetworkImage(
                             imageUrl: e,
                             width: widthOfImage.sp,
                             height: widthOfImage.sp,
