@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,8 @@ import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:personal_packages/image_with_tap.dart';
-import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
+
+final CarouselController _carouselController = CarouselController();
 
 class BuildCarouselWithPageIndicator extends StatelessWidget {
   final int widthOfImage;
@@ -47,6 +49,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
           Padding(
             padding: paddingOfCarousel,
             child: CarouselSlider(
+              carouselController: _carouselController,
               items: isPinchToZoom
                   ? listOfImages
                       .map(
@@ -73,6 +76,9 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                       },
                     ).toList(),
               options: CarouselOptions(
+                scrollPhysics: isPinchToZoom
+                    ? const NeverScrollableScrollPhysics()
+                    : const ScrollPhysics(),
                 height: widthOfImage.sp,
                 viewportFraction: 1,
                 onPageChanged: (index, reason) =>
@@ -83,11 +89,35 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
           Padding(
             padding: paddingOfSmoothPageIndicator,
             child: Obx(
-              () => AnimatedSmoothIndicator(
-                activeIndex: controller.activeCarouselIndex.value,
-                count: listOfImages.length,
-                effect: effectAnimatedSmoothIndicator,
-              ),
+              () => isPinchToZoom
+                  ? Row(
+                      children: [
+                        Expanded(
+                          child: InkWell(
+                            onTap: () => _carouselController.previousPage(),
+                            child: const Icon(CupertinoIcons.chevron_left),
+                          ),
+                        ),
+                        AnimatedSmoothIndicator(
+                          activeIndex: controller.activeCarouselIndex.value,
+                          count: listOfImages.length,
+                          effect: effectAnimatedSmoothIndicator,
+                        ),
+                        Expanded(
+                          child: InkWell(
+                            onTap: () => _carouselController.nextPage(),
+                            child: const Icon(
+                              CupertinoIcons.right_chevron,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  : AnimatedSmoothIndicator(
+                      activeIndex: controller.activeCarouselIndex.value,
+                      count: listOfImages.length,
+                      effect: effectAnimatedSmoothIndicator,
+                    ),
             ),
           ),
         ],
