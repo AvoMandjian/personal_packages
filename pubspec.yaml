@@ -2,11 +2,11 @@ name: personal_packages
 version: 0.0.1
 homepage: https://github.com/AvoMandjian/personal_packages
 description: A new Flutter package project.
-environment: 
-  sdk: '>=2.14.4 <3.0.0'
-  flutter: '>=1.17.0'
+environment:
+  sdk: ">=2.14.4 <3.0.0"
+  flutter: ">=1.17.0"
 
-dependencies: 
+dependencies:
   cached_network_image: any
   extended_image: any
   flutter_facebook_auth: any
@@ -24,14 +24,14 @@ dependencies:
   flutter_svg: ^1.0.0
   flutter_email_sender: 5.0.2
   zoom_pinch_overlay: 1.1.2
+  pinch_zoom_image_last: 0.4.1
   shadowed_image: 1.0.3
-  pinch_zoom: 1.0.0
-  flutter: 
+  flutter:
     sdk: flutter
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^1.0.0
-  flutter_test: 
+  flutter_test:
     sdk: flutter
 
 flutter: null
