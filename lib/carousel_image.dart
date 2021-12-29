@@ -95,7 +95,10 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () => _carouselController.previousPage(),
-                            child: const Icon(CupertinoIcons.chevron_left),
+                            child: const Align(
+                              alignment: Alignment.centerLeft,
+                              child: Icon(CupertinoIcons.chevron_left),
+                            ),
                           ),
                         ),
                         AnimatedSmoothIndicator(
@@ -106,8 +109,11 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () => _carouselController.nextPage(),
-                            child: const Icon(
-                              CupertinoIcons.right_chevron,
+                            child: const Align(
+                              alignment: Alignment.centerLeft,
+                              child: Icon(
+                                CupertinoIcons.right_chevron,
+                              ),
                             ),
                           ),
                         ),
