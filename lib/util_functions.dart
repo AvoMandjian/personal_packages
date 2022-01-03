@@ -79,9 +79,14 @@ getSnackbarSuccess(ApiSuccess apiSuccess, paddingGlobal, {int seconds = 2}) {
   );
 }
 
-Future<void> handleLogout(context, Widget myApp) async {
-  await FacebookAuth.instance.logOut();
-  await GoogleSignIn().signOut();
+Future<void> handleLogout(
+  context,
+  Widget myApp, {
+  bool facebookAuth = false,
+  bool googleSignIn = false,
+}) async {
+  if (facebookAuth) await FacebookAuth.instance.logOut();
+  if (googleSignIn) await GoogleSignIn().signOut();
   await OneSignal.shared.disablePush(true);
   await GetStorage().erase();
   Get.reset();
