@@ -132,7 +132,7 @@ class BuildSizedBoxHeight extends StatelessWidget {
 
 void closeKeyboard() => FocusManager.instance.primaryFocus!.unfocus();
 
-String getCountryFlag({
+String getCountryFlagLink({
   required String countryCode,
   bool isSquare = false,
 }) {
