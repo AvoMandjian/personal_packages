@@ -90,7 +90,10 @@ Future<void> handleLogout(
   await OneSignal.shared.disablePush(true);
   await GetStorage().erase();
   Get.reset();
-  Navigator.of(context).pushAndRemoveUntil(
+  Navigator.of(
+    context,
+    rootNavigator: true,
+  ).pushAndRemoveUntil(
       MaterialPageRoute(
         builder: (context) => myApp,
       ),
