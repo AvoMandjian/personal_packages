@@ -131,3 +131,10 @@ class BuildSizedBoxHeight extends StatelessWidget {
 }
 
 void closeKeyboard() => FocusManager.instance.primaryFocus!.unfocus();
+
+String getCountryFlag({
+  required String countryCode,
+  bool isSquare = false,
+}) {
+  return 'https://flags.twalab.live/${isSquare ? '1x1' : '4x3'}/$countryCode.svg';
+}
