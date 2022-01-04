@@ -50,26 +50,30 @@ getSnackbarError(
   double paddingGlobal,
   ApiError apiError, {
   int seconds = 2,
+  Color backgroundColor = Colors.red,
 }) {
-  Get.closeAllSnackbars();
   return Get.snackbar(
     apiError.error.title,
     apiError.error.message,
     duration: Duration(seconds: seconds),
-    backgroundColor: Colors.red,
+    backgroundColor: backgroundColor,
     margin:
         EdgeInsets.only(top: 25.h, left: paddingGlobal, right: paddingGlobal),
     colorText: Colors.white,
   );
 }
 
-getSnackbarSuccess(ApiSuccess apiSuccess, paddingGlobal, {int seconds = 2}) {
-  Get.closeAllSnackbars();
+getSnackbarSuccess(
+  ApiSuccess apiSuccess,
+  paddingGlobal, {
+  int seconds = 2,
+  Color? backgroundColor,
+}) {
   return Get.snackbar(
     apiSuccess.success.title,
     apiSuccess.success.message,
     duration: Duration(seconds: seconds),
-    backgroundColor: Colors.red,
+    backgroundColor: backgroundColor,
     margin:
         EdgeInsets.only(top: 25.h, left: paddingGlobal, right: paddingGlobal),
     colorText: Colors.white,
