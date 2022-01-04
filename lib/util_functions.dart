@@ -52,8 +52,6 @@ getSnackbarError(
   int seconds = 2,
 }) {
   Get.closeAllSnackbars();
-  closeLoader();
-
   return Get.snackbar(
     apiError.error.title,
     apiError.error.message,
@@ -67,8 +65,6 @@ getSnackbarError(
 
 getSnackbarSuccess(ApiSuccess apiSuccess, paddingGlobal, {int seconds = 2}) {
   Get.closeAllSnackbars();
-  closeLoader();
-
   return Get.snackbar(
     apiSuccess.success.title,
     apiSuccess.success.message,
