@@ -13,12 +13,14 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:personal_packages/models/api_success_model.dart';
 import 'package:http/http.dart' as http;
 
-void openLoader(Color colorOfLoader) {
+void openLoader({double? value}) {
   Get.to(
     () => Container(
       color: Colors.black45,
-      child: BuildCircularProgressIndicator(
-        color: colorOfLoader,
+      child: Center(
+        child: CircularProgressIndicator(
+          value: value,
+        ),
       ),
     ),
     opaque: false,
