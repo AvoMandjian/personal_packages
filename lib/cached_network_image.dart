@@ -10,14 +10,14 @@ class BuildCachedNetworkImage extends StatelessWidget {
   final String imageUrl;
   final double width;
   final double height;
-  final Color color;
+  final Color? color;
   final BoxFit? fit;
-  const BuildCachedNetworkImage({
+  const BuildCachedNetworkImage(
+    this.imageUrl, {
     Key? key,
-    required this.imageUrl,
     required this.width,
     required this.height,
-    required this.color,
+    this.color,
     this.fit = BoxFit.cover,
   }) : super(key: key);
 
@@ -27,6 +27,8 @@ class BuildCachedNetworkImage extends StatelessWidget {
       fit: fit,
       width: width.w,
       height: height.h,
+      memCacheWidth: width.toInt(),
+      memCacheHeight: height.toInt(),
       imageUrl: imageUrl,
       progressIndicatorBuilder: (context, url, downloadProgress) => Center(
         child: BuildCircularProgressIndicator(

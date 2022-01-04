@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:personal_packages/cached_network_image.dart';
 import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:personal_packages/image_with_tap.dart';
@@ -13,7 +14,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
   final int widthOfImage;
   final int heightOfImage;
   final List<String> listOfImages;
-  final Color colorOfLoader;
+  final Color? colorOfLoader;
   final dynamic effectAnimatedSmoothIndicator;
   final dynamic controller;
   final EdgeInsetsGeometry paddingOfCarousel;
@@ -28,7 +29,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
     required this.widthOfImage,
     required this.heightOfImage,
     required this.listOfImages,
-    required this.colorOfLoader,
+    this.colorOfLoader,
     required this.effectAnimatedSmoothIndicator,
     required this.controller,
     required this.paddingOfCarousel,
@@ -55,10 +56,10 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                         (e) => PinchZoomImage(
                           zoomedBackgroundColor: Colors.black45,
                           image: BuildCachedNetworkImage(
-                            imageUrl: e,
+                            e,
                             width: widthOfImage.sp,
                             height: widthOfImage.sp,
-                            colorOfLoader: colorOfLoader,
+                            color: colorOfLoader,
                           ),
                         ),
                       )
