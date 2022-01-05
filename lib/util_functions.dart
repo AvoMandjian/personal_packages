@@ -48,14 +48,13 @@ class HexColor extends Color {
 
 getSnackbarError(
   double paddingGlobal,
-  String message, {
-  String title = 'ERROR',
+  ApiError apiError, {
   int seconds = 2,
   Color backgroundColor = Colors.red,
 }) {
   return Get.snackbar(
-    title,
-    message,
+    apiError.error.title,
+    apiError.error.message,
     duration: Duration(seconds: seconds),
     backgroundColor: backgroundColor,
     margin:
@@ -65,15 +64,14 @@ getSnackbarError(
 }
 
 getSnackbarSuccess(
-  double paddingGlobal,
-  String message, {
-  String title = 'SUCCESS',
+  ApiSuccess apiSuccess,
+  paddingGlobal, {
   int seconds = 2,
-  Color backgroundColor = Colors.green,
+  Color? backgroundColor,
 }) {
   return Get.snackbar(
-    title,
-    message,
+    apiSuccess.success.title,
+    apiSuccess.success.message,
     duration: Duration(seconds: seconds),
     backgroundColor: backgroundColor,
     margin:
