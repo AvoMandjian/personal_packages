@@ -147,3 +147,7 @@ String getCountryFlagLink({
 }) {
   return 'https://flags.twalab.live/${isSquare ? '1x1' : '4x3'}/$countryCode.svg';
 }
+
+String getLocale() {
+  return Get.locale?.languageCode ?? 'en';
+}
