@@ -28,7 +28,7 @@ class ApiSuccess {
 class Success {
   Success({
     this.code,
-    required this.title,
+    this.title = 'SUCCESS',
     required this.message,
     this.debugger,
   });

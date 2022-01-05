@@ -48,7 +48,7 @@ class ApiError {
 class Error {
   Error({
     this.code,
-    required this.title,
+    this.title = 'ERROR',
     required this.message,
     this.debugger,
   });
