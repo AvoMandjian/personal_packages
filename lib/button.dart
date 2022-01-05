@@ -14,6 +14,7 @@ class BuildButton extends StatelessWidget {
   final AlignmentGeometry? alignment;
   final TextAlign? textAlign;
   final int maxLines;
+  final EdgeInsetsGeometry? paddingAroundTheText;
   const BuildButton({
     Key? key,
     this.buttonText = '',
@@ -26,6 +27,7 @@ class BuildButton extends StatelessWidget {
     this.alignment,
     this.textAlign,
     this.maxLines = 1,
+    this.paddingAroundTheText,
   }) : super(key: key);
 
   @override
@@ -38,8 +40,8 @@ class BuildButton extends StatelessWidget {
           width: width.w,
           height: height.h,
           color: color,
-          child: Align(
-            alignment: alignment ?? Alignment.center,
+          child: Padding(
+            padding: paddingAroundTheText ?? const EdgeInsets.all(0),
             child: BuildText(
               buttonText,
               style: textStyle ??
