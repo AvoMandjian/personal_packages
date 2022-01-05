@@ -1,6 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:personal_packages/text_autozsize.dart';
 
 class BuildButton extends StatelessWidget {
   final String buttonText;
@@ -11,6 +12,8 @@ class BuildButton extends StatelessWidget {
   final void Function()? onTap;
   final BorderRadius borderRadius;
   final AlignmentGeometry? alignment;
+  final TextAlign? textAlign;
+  final int maxLines;
   const BuildButton({
     Key? key,
     this.buttonText = '',
@@ -21,6 +24,8 @@ class BuildButton extends StatelessWidget {
     this.onTap,
     this.borderRadius = BorderRadius.zero,
     this.alignment,
+    this.textAlign,
+    this.maxLines = 1,
   }) : super(key: key);
 
   @override
@@ -35,7 +40,7 @@ class BuildButton extends StatelessWidget {
           color: color,
           child: Align(
             alignment: alignment ?? Alignment.center,
-            child: AutoSizeText(
+            child: BuildText(
               buttonText,
               style: textStyle ??
                   TextStyle(
@@ -44,8 +49,8 @@ class BuildButton extends StatelessWidget {
                     letterSpacing: 1,
                     color: Colors.white,
                   ),
-              minFontSize: 1,
-              maxLines: 1,
+              maxLines: maxLines,
+              textAlign: textAlign,
             ),
           ),
         ),
