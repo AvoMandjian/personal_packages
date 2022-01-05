@@ -11,7 +11,7 @@ class BuildButton extends StatelessWidget {
   final int height;
   final void Function()? onTap;
   final BorderRadius borderRadius;
-  final AlignmentGeometry? alignment;
+  final AlignmentGeometry? alignmentOfText;
   final TextAlign? textAlign;
   final int maxLines;
   final EdgeInsetsGeometry? paddingAroundTheText;
@@ -24,7 +24,7 @@ class BuildButton extends StatelessWidget {
     this.height = 60,
     this.onTap,
     this.borderRadius = BorderRadius.zero,
-    this.alignment,
+    this.alignmentOfText,
     this.textAlign,
     this.maxLines = 1,
     this.paddingAroundTheText,
@@ -42,17 +42,20 @@ class BuildButton extends StatelessWidget {
           color: color,
           child: Padding(
             padding: paddingAroundTheText ?? const EdgeInsets.all(0),
-            child: BuildText(
-              buttonText,
-              style: textStyle ??
-                  TextStyle(
-                    fontFamily: 'MontserratSemiBold',
-                    fontSize: 13.sp,
-                    letterSpacing: 1,
-                    color: Colors.white,
-                  ),
-              maxLines: maxLines,
-              textAlign: textAlign,
+            child: Align(
+              alignment: alignmentOfText ?? Alignment.center,
+              child: BuildText(
+                buttonText,
+                style: textStyle ??
+                    TextStyle(
+                      fontFamily: 'MontserratSemiBold',
+                      fontSize: 13.sp,
+                      letterSpacing: 1,
+                      color: Colors.white,
+                    ),
+                maxLines: maxLines,
+                textAlign: textAlign,
+              ),
             ),
           ),
         ),
