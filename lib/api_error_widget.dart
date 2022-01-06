@@ -51,7 +51,7 @@ class BuildApiErrorWidget extends StatelessWidget {
                     style: TextStyle(color: Colors.red),
                   ),
                   onPressed: () async {
-                    await handleLogout(context, myApp);
+                    await handleLogoutOrRestart(context, myApp);
                   }),
             ),
         ],
