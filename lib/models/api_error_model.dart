@@ -27,7 +27,10 @@ ApiError apiErrorFromJson(
   return ApiError.fromJson(json.decode(str));
 }
 
-String apiErrorToJson(ApiError data) => json.encode(data.toJson());
+String apiErrorToJson(ApiError data) {
+  log(jsonEncode(data.error).toString());
+  return json.encode(data.toJson());
+}
 
 class ApiError {
   ApiError({
