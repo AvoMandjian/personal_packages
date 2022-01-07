@@ -54,7 +54,7 @@ getSnackbarError(
   Color backgroundColor = Colors.red,
   Uri? requestUri,
 }) {
-  log('\nERROR\n\n\tREQUEST:\n\t\t$requestUri\n\tTITLE:\n\t\t${apiError.error.title}\nMESSAGE:\n\t\t${apiError.error.message}');
+  log('\nERROR\n\n\t\tREQUEST:\n\t\t\t$requestUri\n\t\tTITLE:\n\t\t\t${apiError.error.title}\n\t\tMESSAGE:\n\t\t\t${apiError.error.message}');
   return Get.snackbar(
     apiError.error.title,
     apiError.error.message,
