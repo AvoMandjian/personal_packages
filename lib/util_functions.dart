@@ -52,8 +52,9 @@ getSnackbarError(
   ApiError apiError, {
   int seconds = 2,
   Color backgroundColor = Colors.red,
+  String? requestUri,
 }) {
-  log('ERROR\n\tTITLE:\n\t\t${apiError.error.title}\nERROR:\n\t\t${apiError.error.message}');
+  log('ERROR\n\tTITLE:\n\t\t${apiError.error.title}\nERROR:\n\t\t${apiError.error.message}\nREQUEST:\n\t\t$requestUri');
   return Get.snackbar(
     apiError.error.title,
     apiError.error.message,
@@ -159,8 +160,9 @@ String getLocale() {
 
 void getSnackbarErrorDelayed(
   paddingGlobal,
-  Object error,
-) {
+  Object error, {
+  String? requestUri,
+}) {
   Future.delayed(
     const Duration(milliseconds: 500),
     () => getSnackbarError(
@@ -177,6 +179,7 @@ void getSnackbarErrorDelayed(
                 }
               },
             ),
+      requestUri: requestUri,
     ),
   );
 }
