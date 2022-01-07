@@ -154,3 +154,27 @@ String getCountryFlagLink({
 String getLocale() {
   return Get.locale?.languageCode ?? 'en';
 }
+
+void getSnackbarErrorDelayed(
+  paddingGlobal,
+  Object error,
+) {
+  Future.delayed(
+    const Duration(milliseconds: 500),
+    () => getSnackbarError(
+      paddingGlobal,
+      error is ApiError
+          ? error
+          : ApiError.fromJson(
+              {
+                'error': {
+                  'title': 'ERROR',
+                  'message': '$error',
+                  'debugger': '',
+                  'code': 0,
+                }
+              },
+            ),
+    ),
+  );
+}
