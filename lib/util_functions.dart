@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -52,6 +53,7 @@ getSnackbarError(
   int seconds = 2,
   Color backgroundColor = Colors.red,
 }) {
+  log('ERROR\n\tTITLE:\n\t\t${apiError.error.title}\nERROR:\n\t\t${apiError.error.message}');
   return Get.snackbar(
     apiError.error.title,
     apiError.error.message,
