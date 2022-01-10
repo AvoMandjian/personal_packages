@@ -49,21 +49,25 @@ class HexColor extends Color {
 
 getSnackbarError(
   double paddingGlobal,
-  ApiError apiError, {
+  ApiError? apiError, {
+  String title = 'ERROR',
+  String message = '',
   int seconds = 2,
   Color backgroundColor = Colors.red,
   Uri? requestUri,
 }) {
-  log('\nERROR\n\n\t\tREQUEST:\n\t\t\t$requestUri\n\t\tTITLE:\n\t\t\t${apiError.error.title}\n\t\tMESSAGE:\n\t\t\t${apiError.error.message}');
-  return Get.snackbar(
-    apiError.error.title,
-    apiError.error.message,
-    duration: Duration(seconds: seconds),
-    backgroundColor: backgroundColor,
-    margin:
-        EdgeInsets.only(top: 25.h, left: paddingGlobal, right: paddingGlobal),
-    colorText: Colors.white,
-  );
+  log('\nERROR\n\n\t\tREQUEST:\n\t\t\t$requestUri\n\t\tTITLE:\n\t\t\t${apiError?.error.title ?? title}\n\t\tMESSAGE:\n\t\t\t${apiError?.error.message ?? message}');
+  if (!Get.isSnackbarOpen) {
+    return Get.snackbar(
+      apiError?.error.title ?? title,
+      apiError?.error.message ?? message,
+      duration: Duration(seconds: seconds),
+      backgroundColor: backgroundColor,
+      margin:
+          EdgeInsets.only(top: 25.h, left: paddingGlobal, right: paddingGlobal),
+      colorText: Colors.white,
+    );
+  }
 }
 
 getSnackbarSuccess(
