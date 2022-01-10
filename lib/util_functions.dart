@@ -48,8 +48,8 @@ class HexColor extends Color {
 }
 
 getSnackbarError(
-  double paddingGlobal,
-  ApiError? apiError, {
+  double paddingGlobal, {
+  ApiError? apiError,
   String title = 'ERROR',
   String message = '',
   int seconds = 2,
@@ -171,7 +171,7 @@ void getSnackbarErrorDelayed(
     const Duration(milliseconds: 500),
     () => getSnackbarError(
       paddingGlobal,
-      error is ApiError
+      apiError: error is ApiError
           ? error
           : ApiError.fromJson(
               {
