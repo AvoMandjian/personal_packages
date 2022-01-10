@@ -71,20 +71,26 @@ getSnackbarError(
 }
 
 getSnackbarSuccess(
-  ApiSuccess apiSuccess,
-  paddingGlobal, {
+  double paddingGlobal, {
+  ApiSuccess? apiSuccess,
+  String title = 'ERROR',
+  String message = '',
   int seconds = 2,
-  Color? backgroundColor,
+  Color backgroundColor = Colors.red,
+  Uri? requestUri,
 }) {
-  return Get.snackbar(
-    apiSuccess.success.title,
-    apiSuccess.success.message,
-    duration: Duration(seconds: seconds),
-    backgroundColor: backgroundColor,
-    margin:
-        EdgeInsets.only(top: 25.h, left: paddingGlobal, right: paddingGlobal),
-    colorText: Colors.white,
-  );
+  log('\nSUCCESS\n\n\t\tREQUEST:\n\t\t\t$requestUri\n\t\tTITLE:\n\t\t\t${apiSuccess?.success.title ?? title}\n\t\tMESSAGE:\n\t\t\t${apiSuccess?.success.message ?? message}');
+  if (!Get.isSnackbarOpen) {
+    return Get.snackbar(
+      apiSuccess?.success.title ?? title,
+      apiSuccess?.success.message ?? message,
+      duration: Duration(seconds: seconds),
+      backgroundColor: backgroundColor,
+      margin:
+          EdgeInsets.only(top: 25.h, left: paddingGlobal, right: paddingGlobal),
+      colorText: Colors.white,
+    );
+  }
 }
 
 Future<void> handleLogoutOrRestart(
@@ -160,6 +166,32 @@ String getCountryFlagLink({
 
 String getLocale() {
   return Get.locale?.languageCode ?? 'en';
+}
+
+void getSnackbarSuccessDelayed(
+  paddingGlobal,
+  Object success, {
+  Uri? requestUri,
+}) {
+  Future.delayed(
+    const Duration(milliseconds: 500),
+    () => getSnackbarSuccess(
+      paddingGlobal,
+      apiSuccess: success is ApiSuccess
+          ? success
+          : ApiSuccess.fromJson(
+              {
+                'error': {
+                  'title': 'ERROR',
+                  'message': '$success',
+                  'debugger': '',
+                  'code': 0,
+                }
+              },
+            ),
+      requestUri: requestUri,
+    ),
+  );
 }
 
 void getSnackbarErrorDelayed(
