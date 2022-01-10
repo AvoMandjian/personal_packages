@@ -73,10 +73,10 @@ getSnackbarError(
 getSnackbarSuccess(
   double paddingGlobal, {
   ApiSuccess? apiSuccess,
-  String title = 'ERROR',
+  String title = 'SUCCESS',
   String message = '',
   int seconds = 2,
-  Color backgroundColor = Colors.red,
+  Color backgroundColor = Colors.green,
   Uri? requestUri,
 }) {
   log('\nSUCCESS\n\n\t\tREQUEST:\n\t\t\t$requestUri\n\t\tTITLE:\n\t\t\t${apiSuccess?.success.title ?? title}\n\t\tMESSAGE:\n\t\t\t${apiSuccess?.success.message ?? message}');
