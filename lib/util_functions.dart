@@ -180,14 +180,9 @@ void getSnackbarSuccessDelayed(
       apiSuccess: success is ApiSuccess
           ? success
           : ApiSuccess.fromJson(
-              {
-                'error': {
-                  'title': 'ERROR',
-                  'message': '$success',
-                  'debugger': '',
-                  'code': 0,
-                }
-              },
+              ApiSuccess(
+                success: Success(message: '$success'),
+              ).toJson(),
             ),
       requestUri: requestUri,
     ),
