@@ -214,3 +214,7 @@ void getSnackbarErrorDelayed(
     ),
   );
 }
+
+String getPhoneNumber(splashscreenController) {
+  return splashscreenController.phoneNumber.phoneNumber ?? '';
+}
