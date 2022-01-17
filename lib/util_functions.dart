@@ -179,20 +179,18 @@ String getLocale() {
 
 void getSnackbarSuccessDelayed(
   paddingGlobal,
-  Object success, {
+  ApiSuccess? apiSuccess, {
+  String? message,
+  String? title,
   Uri? requestUri,
 }) {
   Future.delayed(
     const Duration(milliseconds: 500),
     () => getSnackbarSuccess(
       paddingGlobal,
-      apiSuccess: success is ApiSuccess
-          ? success
-          : ApiSuccess.fromJson(
-              ApiSuccess(
-                success: Success(message: '$success'),
-              ).toJson(),
-            ),
+      apiSuccess: apiSuccess,
+      message: message ?? '',
+      title: title ?? '',
       requestUri: requestUri,
     ),
   );
@@ -200,25 +198,18 @@ void getSnackbarSuccessDelayed(
 
 void getSnackbarErrorDelayed(
   paddingGlobal,
-  Object error, {
+  ApiError? apiError, {
+  String? message,
+  String? title,
   Uri? requestUri,
 }) {
   Future.delayed(
     const Duration(milliseconds: 500),
     () => getSnackbarError(
       paddingGlobal,
-      apiError: error is ApiError
-          ? error
-          : ApiError.fromJson(
-              {
-                'error': {
-                  'title': 'ERROR',
-                  'message': '$error',
-                  'debugger': '',
-                  'code': 0,
-                }
-              },
-            ),
+      apiError: apiError,
+      message: message ?? '',
+      title: title ?? '',
       requestUri: requestUri,
     ),
   );
