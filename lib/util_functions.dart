@@ -14,6 +14,7 @@ import 'package:personal_packages/models/api_error_model.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:personal_packages/models/api_success_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:personal_packages/models/ip_details.dart';
 
 void openLoader({double? value, Color? color}) {
   Get.to(
@@ -123,6 +124,13 @@ Future<String> getcountryCodeFromIpInfo() async {
   Map decodedData = jsonDecode(data.body);
   String countryCode = decodedData['countryCode'];
   return countryCode;
+}
+
+Future<IpDetails> getIpDetail() async {
+  var data = await http.get(Uri.parse('http://ip-api.com/json'));
+  Map<String, dynamic> decodedData = jsonDecode(data.body);
+  IpDetails ipDetails = IpDetails.fromMap(decodedData);
+  return ipDetails;
 }
 
 class BuildSizedBoxWidth extends StatelessWidget {
