@@ -178,8 +178,8 @@ String getLocale() {
 }
 
 void getSnackbarSuccessDelayed(
-  paddingGlobal,
-  ApiSuccess? apiSuccess, {
+  paddingGlobal, {
+  ApiSuccess? apiSuccess,
   String? message,
   String? title,
   Uri? requestUri,
@@ -197,8 +197,8 @@ void getSnackbarSuccessDelayed(
 }
 
 void getSnackbarErrorDelayed(
-  paddingGlobal,
-  ApiError? apiError, {
+  paddingGlobal, {
+  ApiError? apiError,
   String? message,
   String? title,
   Uri? requestUri,
