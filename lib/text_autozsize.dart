@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:auto_size_text/auto_size_text.dart';
 
+/// default [maxLines] = 1
 class BuildText extends StatelessWidget {
   const BuildText(
     this.text, {
