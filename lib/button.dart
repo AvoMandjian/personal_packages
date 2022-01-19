@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:personal_packages/text_autozsize.dart';
 
+/// a simple container with inkwell
 class BuildButton extends StatelessWidget {
   final String buttonText;
   final Color color;
