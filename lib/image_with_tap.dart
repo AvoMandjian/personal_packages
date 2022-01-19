@@ -1,9 +1,11 @@
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:personal_packages/cached_network_image.dart';
+
+import 'cached_network_image.dart';
 
 class BuildImageWithTap extends StatelessWidget {
   final String image;

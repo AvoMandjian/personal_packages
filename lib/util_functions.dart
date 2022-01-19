@@ -2,19 +2,20 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:http/http.dart' as http;
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
-import 'package:personal_packages/circular_progress_indicator.dart';
-import 'package:personal_packages/models/api_error_model.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:personal_packages/models/api_success_model.dart';
-import 'package:http/http.dart' as http;
-import 'package:personal_packages/models/ip_details.dart';
+
+import 'circular_progress_indicator.dart';
+import 'models/api_error_model.dart';
+import 'models/api_success_model.dart';
+import 'models/ip_details.dart';
 
 void openLoader({double? value, Color? color}) {
   Get.to(

@@ -1,12 +1,14 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:personal_packages/cached_network_image.dart';
 import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:personal_packages/image_with_tap.dart';
+
+import 'cached_network_image.dart';
+import 'image_with_tap.dart';
 
 final CarouselController _carouselController = CarouselController();
 
