@@ -39,6 +39,7 @@ void closeLoader() {
 }
 
 class HexColor extends Color {
+  /// takes [hexColor] without # and return Color model
   static int _getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
     if (hexColor.length == 6) {
