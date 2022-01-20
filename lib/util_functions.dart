@@ -218,8 +218,8 @@ void getSnackbarErrorDelayed(
   );
 }
 
-PhoneNumber getPhoneNumber(splashscreenController) {
-  return splashscreenController.phoneNumber ?? PhoneNumber();
-}
+// PhoneNumber getPhoneNumber(splashscreenController) {
+//   return splashscreenController.phoneNumber ?? PhoneNumber();
+// }
 
 void getBack() => Get.back();
