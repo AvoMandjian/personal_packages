@@ -168,7 +168,7 @@ class BuildSizedBoxHeight extends StatelessWidget {
 
 void closeKeyboard() => FocusManager.instance.primaryFocus?.unfocus();
 
-  /// [countryCode] example lb, usa
+/// [countryCode] example lb, usa
 String getCountryFlagLink({
   required String countryCode,
   bool isSquare = false,
@@ -193,7 +193,7 @@ void getSnackbarSuccessDelayed(
       paddingGlobal,
       apiSuccess: apiSuccess,
       message: message ?? '',
-      title: title ?? '',
+      title: title ?? 'SUCCESS',
       requestUri: requestUri,
     ),
   );
@@ -212,7 +212,7 @@ void getSnackbarErrorDelayed(
       paddingGlobal,
       apiError: apiError,
       message: message ?? '',
-      title: title ?? '',
+      title: title ?? 'ERROR',
       requestUri: requestUri,
     ),
   );
