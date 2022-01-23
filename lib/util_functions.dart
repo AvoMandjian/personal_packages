@@ -9,7 +9,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'circular_progress_indicator.dart';
