@@ -3,25 +3,25 @@ version: 0.0.1
 homepage: https://github.com/AvoMandjian/personal_packages
 description: A new Flutter package project.
 environment:
-  sdk: ">=2.14.4 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
-  cached_network_image: any
-  extended_image: any
-  flutter_facebook_auth: any
-  flutter_screenutil: any
-  get: any
-  get_storage: any
-  google_sign_in: any
-  http: any
-  intl_phone_number_input: any
-  line_icons: any
-  onesignal_flutter: any
-  auto_size_text: any
-  carousel_slider: any
-  smooth_page_indicator: any
-  flutter_svg: ^1.0.0
+  cached_network_image: 3.2.0
+  extended_image: 6.0.1
+  flutter_facebook_auth: 4.0.1
+  flutter_screenutil: 5.1.0
+  get: 4.6.1
+  get_storage: 2.0.3
+  google_sign_in: 5.2.3
+  http: 0.13.4
+  intl_phone_number_input: 0.7.0+2
+  line_icons: 2.0.1
+  onesignal_flutter: 3.2.7
+  auto_size_text: 3.0.0
+  carousel_slider: 4.0.0
+  smooth_page_indicator: 1.0.0+2
+  flutter_svg: 1.0.3
   flutter_email_sender: 5.0.2
   zoom_pinch_overlay: 1.1.2
   pinch_zoom_image_last: 0.4.1
