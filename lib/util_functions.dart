@@ -17,24 +17,29 @@ import 'models/api_success_model.dart';
 import 'models/ip_details.dart';
 
 void openLoader({double? value, Color? color}) {
-  Get.to(
-    () => Container(
-      color: Colors.black45,
-      child: BuildCircularProgressIndicator(
-        color: color,
-        value: value,
+  if (!Get.currentRoute.contains('openLoader')) {
+    Get.to(
+      () => Container(
+        color: Colors.black45,
+        child: BuildCircularProgressIndicator(
+          color: color,
+          value: value,
+        ),
       ),
-    ),
-    opaque: false,
-    fullscreenDialog: true,
-    duration: const Duration(
-      seconds: 0,
-    ),
-  );
+      opaque: false,
+      fullscreenDialog: true,
+      duration: const Duration(
+        seconds: 0,
+      ),
+      routeName: 'openLoader',
+    );
+  }
 }
 
 void closeLoader() {
-  Get.back();
+  if (Get.currentRoute.contains('openLoader')) {
+    Get.back();
+  }
 }
 
 class HexColor extends Color {
