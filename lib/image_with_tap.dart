@@ -43,6 +43,7 @@ class BuildImageWithTap extends StatelessWidget {
           ),
           opaque: false,
           fullscreenDialog: true,
+          transition: Transition.noTransition,
         );
       },
     );
