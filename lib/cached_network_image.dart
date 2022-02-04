@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:line_icons/line_icons.dart';
 
 import 'circular_progress_indicator.dart';
 
@@ -41,8 +40,9 @@ class BuildCachedNetworkImage extends StatelessWidget {
           color: color,
         ),
       ),
-      errorWidget: (context, url, error) =>
-          const Icon(LineIcons.exclamationCircle),
+      errorWidget: (context, url, error) => Container(
+        color: Colors.black54,
+      ),
     );
   }
 }
