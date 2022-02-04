@@ -19,7 +19,7 @@ import 'models/ip_details.dart';
 void openLoader({double? value, Color? color}) {
   if (!Get.currentRoute.contains('openLoader')) {
     Get.to(
-      () => InkWell(
+      () => GestureDetector(
         onLongPress: () => Get.back(),
         child: Container(
           color: Colors.black45,
