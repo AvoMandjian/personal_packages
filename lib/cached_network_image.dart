@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'circular_progress_indicator.dart';
 
@@ -29,8 +28,8 @@ class BuildCachedNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       fit: fit,
-      width: width.w,
-      height: height.h,
+      width: width,
+      height: height,
       memCacheWidth: memCacheWidth ?? width.toInt(),
       memCacheHeight: memCacheHeight ?? height.toInt(),
       imageUrl: imageUrl,

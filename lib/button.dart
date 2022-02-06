@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'text_autozsize.dart';
 
 /// a simple container with inkwell
@@ -41,8 +39,8 @@ class BuildButton extends StatelessWidget {
       child: ClipRRect(
         borderRadius: borderRadius,
         child: Container(
-          width: width.w,
-          height: height.h,
+          width: width,
+          height: height.toDouble(),
           color: color,
           child: child ??
               Padding(
@@ -52,10 +50,10 @@ class BuildButton extends StatelessWidget {
                   child: BuildText(
                     buttonText,
                     style: textStyle ??
-                        TextStyle(
+                        const TextStyle(
                           fontFamily: 'MontserratSemiBold',
-                          fontSize: 13.sp,
-                          letterSpacing: 1,
+                          fontSize: 13,
+                          letterSpacing: 1.0,
                           color: Colors.white,
                         ),
                     maxLines: maxLines,

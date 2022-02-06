@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class BuildTextFormField extends StatelessWidget {
   final bool enabled;
   final String hintText;
@@ -40,7 +38,7 @@ class BuildTextFormField extends StatelessWidget {
       opacity: enabled ? 1 : 0.2,
       child: Padding(
         padding: EdgeInsetsDirectional.only(
-          bottom: bottomPadding.h,
+          bottom: bottomPadding.toDouble(),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -51,7 +49,7 @@ class BuildTextFormField extends StatelessWidget {
               style: labelTextStyle,
             ),
             SizedBox(
-              height: paddingBetweenLabelAndInput.h,
+              height: paddingBetweenLabelAndInput.toDouble(),
             ),
             TextFormField(
               textCapitalization: textCapitalization ?? TextCapitalization.none,

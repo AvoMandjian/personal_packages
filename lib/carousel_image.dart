@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:get/get.dart';
 import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -59,8 +59,8 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                           zoomedBackgroundColor: Colors.black45,
                           image: BuildCachedNetworkImage(
                             e,
-                            width: widthOfImage.sp,
-                            height: widthOfImage.sp,
+                            width: widthOfImage.toDouble(),
+                            height: widthOfImage.toDouble(),
                             color: colorOfLoader,
                           ),
                         ),
@@ -70,8 +70,8 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                       (e) {
                         return BuildImageWithTap(
                           image: e,
-                          width: widthOfImage.sp,
-                          height: widthOfImage.sp,
+                          width: widthOfImage.toDouble(),
+                          height: widthOfImage.toDouble(),
                           colorOfLoader: colorOfLoader,
                         );
                       },
@@ -80,7 +80,7 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                 scrollPhysics: isPinchToZoom
                     ? const NeverScrollableScrollPhysics()
                     : const ScrollPhysics(),
-                height: widthOfImage.sp,
+                height: widthOfImage.toDouble(),
                 viewportFraction: 1,
                 onPageChanged: (index, reason) =>
                     controller.activeCarouselIndex.value = index,
@@ -96,10 +96,10 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () => _carouselController.previousPage(),
-                            child: Align(
+                            child: const Align(
                               child: Icon(
                                 CupertinoIcons.chevron_left,
-                                size: 18.sp,
+                                size: 18
                               ),
                             ),
                           ),
@@ -112,10 +112,10 @@ class BuildCarouselWithPageIndicator extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () => _carouselController.nextPage(),
-                            child: Align(
+                            child: const Align(
                               child: Icon(
                                 CupertinoIcons.right_chevron,
-                                size: 18.sp,
+                                size: 18
                               ),
                             ),
                           ),

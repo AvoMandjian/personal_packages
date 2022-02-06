@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:get/get.dart';
 
 class BuildImageOnTap extends StatelessWidget {
@@ -16,7 +16,7 @@ class BuildImageOnTap extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.w),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Hero(
           tag: image,
           child: Stack(
@@ -37,7 +37,7 @@ class BuildImageOnTap extends StatelessWidget {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(10.0.sp),
+                  padding: const EdgeInsets.all(10.0),
                   child: ExtendedImage.network(
                     image,
                     fit: BoxFit.contain,
@@ -88,10 +88,10 @@ class BuildImageOnTap extends StatelessWidget {
               GestureDetector(
                 onTap: () => Get.back(),
                 child: Padding(
-                  padding: EdgeInsets.all(10.sp),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: 20.sp,
-                    height: 20.sp,
+                    width: 20.toDouble(),
+                    height: 20.toDouble(),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
@@ -99,12 +99,9 @@ class BuildImageOnTap extends StatelessWidget {
                       ),
                       shape: BoxShape.circle,
                     ),
-                    child: Center(
-                      child: Icon(
-                        CupertinoIcons.xmark,
-                        color: Colors.black,
-                        size: 13.0.sp,
-                      ),
+                    child: const Center(
+                      child: Icon(CupertinoIcons.xmark,
+                          color: Colors.black, size: 13.0),
                     ),
                   ),
                 ),

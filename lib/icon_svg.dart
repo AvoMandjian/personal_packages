@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BuildSvgIcon extends StatelessWidget {
@@ -19,8 +18,8 @@ class BuildSvgIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       svgAssetPath,
-      width: width.w,
-      height: height.h,
+      width: width,
+      height: height,
       color: color,
     );
   }

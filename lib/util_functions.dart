@@ -2,9 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -75,7 +74,7 @@ getSnackbarError(
       duration: Duration(seconds: seconds),
       backgroundColor: backgroundColor,
       margin:
-          EdgeInsets.only(top: 25.h, left: paddingGlobal, right: paddingGlobal),
+          EdgeInsets.only(top: 25, left: paddingGlobal, right: paddingGlobal),
       colorText: Colors.white,
     );
   }
@@ -98,15 +97,13 @@ getSnackbarSuccess(
       duration: Duration(seconds: seconds),
       backgroundColor: backgroundColor,
       margin:
-          EdgeInsets.only(top: 25.h, left: paddingGlobal, right: paddingGlobal),
+          EdgeInsets.only(top: 25, left: paddingGlobal, right: paddingGlobal),
       colorText: Colors.white,
     );
   }
 }
 
-Future<void> handleLogoutOrRestart(
-  context,
-  Widget myApp, {
+Future<void> handleLogoutOrRestart({
   bool facebookAuth = false,
   bool googleSignIn = false,
   bool logOut = true,
@@ -117,15 +114,10 @@ Future<void> handleLogoutOrRestart(
     await OneSignal.shared.disablePush(true);
     await GetStorage().erase();
   }
+  await Get.deleteAll(force: true);
+  Phoenix.rebirth(Get.context!);
   Get.reset();
-  Navigator.of(
-    context,
-    rootNavigator: true,
-  ).pushAndRemoveUntil(
-      MaterialPageRoute(
-        builder: (context) => myApp,
-      ),
-      (route) => false);
+  Get.reloadAll(force: true);
 }
 
 Future<String> getcountryCodeFromIpInfo() async {
@@ -153,7 +145,7 @@ class BuildSizedBoxWidth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width.w,
+      width: width.toDouble(),
     );
   }
 }
@@ -168,7 +160,7 @@ class BuildSizedBoxHeight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height.h,
+      height: height.toDouble(),
     );
   }
 }

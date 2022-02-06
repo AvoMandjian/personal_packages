@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
@@ -24,7 +23,7 @@ class BuildInternationalPhoneNumberInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: Get.width - (2 * paddingGlobal),
-      height: 57.3.h,
+      height: 57.3,
       child: Stack(
         children: [
           InternationalPhoneNumberInput(
@@ -65,11 +64,8 @@ class BuildInternationalPhoneNumberInput extends StatelessWidget {
                   padding: EdgeInsets.only(
                     left: Get.mediaQuery.size.shortestSide * 0.12,
                   ),
-                  child: Icon(
-                    Icons.arrow_drop_down,
-                    color: Colors.white,
-                    size: 20.sp,
-                  ),
+                  child: const Icon(Icons.arrow_drop_down,
+                      color: Colors.white, size: 20),
                 ),
               ),
             ),

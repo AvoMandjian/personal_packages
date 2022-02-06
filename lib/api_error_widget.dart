@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../util_functions.dart';
+import 'package:personal_packages/util_functions.dart';
 
 class BuildApiErrorWidget extends StatelessWidget {
   const BuildApiErrorWidget({
@@ -24,12 +21,12 @@ class BuildApiErrorWidget extends StatelessWidget {
         children: [
           Text(message),
           if (!message.contains('token'))
-            SizedBox(
-              height: 30.h,
+            const SizedBox(
+              height: 30,
             ),
           if (!message.contains('token'))
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(90.w, 0, 90.w, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(90, 0, 90, 0),
               child: ElevatedButton(
                 child: const Text('Refresh'),
                 onPressed: function,
@@ -39,19 +36,19 @@ class BuildApiErrorWidget extends StatelessWidget {
               ),
             ),
           if (message.contains('token'))
-            SizedBox(
-              height: 30.h,
+            const SizedBox(
+              height: 30,
             ),
           if (message.contains('token'))
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(90.w, 0, 90.w, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(90, 0, 90, 0),
               child: ElevatedButton(
                   child: const Text(
                     'Logout',
                     style: TextStyle(color: Colors.red),
                   ),
                   onPressed: () async {
-                    await handleLogoutOrRestart(context, myApp);
+                    await handleLogoutOrRestart();
                   }),
             ),
         ],

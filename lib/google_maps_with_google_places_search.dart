@@ -3,7 +3,7 @@
 // import 'package:flutter/material.dart';
 
 // import 'package:dotted_line/dotted_line.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
+// 
 // import 'package:get/get.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart';
 // import 'package:google_place/google_place.dart';
@@ -40,7 +40,7 @@
 //       body: Column(
 //         children: [
 //           SizedBox(
-//             height: 624.h,
+//             height: 624,
 //             child: Stack(
 //               children: [
 //                 GoogleMap(
@@ -51,8 +51,8 @@
 //                 ),
 //                 Padding(
 //                   padding: EdgeInsets.symmetric(
-//                     horizontal: 27.w,
-//                     vertical: 20.h,
+//                     horizontal: 27,
+//                     vertical: 20,
 //                   ),
 //                   child: FloatingSearchBar(
 //                     controller: floatingSearchBarController,
@@ -135,10 +135,10 @@
 //                     visible: controller.predictions.length == 0 ? true : false,
 //                     child: Center(
 //                       child: Padding(
-//                         padding: EdgeInsets.only(bottom: 40.0.h),
+//                         padding: EdgeInsets.only(bottom: 40.0),
 //                         child: Icon(
 //                           LineIcons.mapPin,
-//                           size: 40.sp,
+//                           size: 40
 //                         ),
 //                       ),
 //                     ),
@@ -151,19 +151,19 @@
 //       ),
 //       bottomNavigationBar: Container(
 //         color: Colors.white,
-//         height: 180.h,
+//         height: 180,
 //         child: Column(
 //           children: [
 //             ListTile(
 //               minVerticalPadding: 0,
-//               contentPadding: EdgeInsets.only(left: 27.w, right: 27.w),
+//               contentPadding: EdgeInsets.only(left: 27, right: 27),
 //               leading: Container(
 //                 child: Icon(
 //                   LineIcons.mapMarker,
 //                   color: Colors.red,
 //                 ),
-//                 width: 40.w,
-//                 height: 40.h,
+//                 width: 40,
+//                 height: 40,
 //                 decoration: BoxDecoration(
 //                   shape: BoxShape.circle,
 //                   color: Colors.red.withOpacity(0.1),
@@ -183,18 +183,18 @@
 //               ),
 //               trailing: Icon(
 //                 LineIcons.angleRight,
-//                 size: 14.sp,
+//                 size: 14
 //                 color: Colors.red,
 //               ),
 //             ),
 //             Padding(
-//               padding: EdgeInsets.only(bottom: 20.0.h, top: 7.h),
+//               padding: EdgeInsets.only(bottom: 20.0, top: 7),
 //               child: DottedLine(
 //                 dashColor: Colors.black.withOpacity(0.07),
 //               ),
 //             ),
 //             Padding(
-//               padding: EdgeInsets.symmetric(horizontal: 27.w),
+//               padding: EdgeInsets.symmetric(horizontal: 27),
 //               child: BuildGradientButton(
 //                 buttonChild: Text(
 //                   'CONFIRM ADDRESS',
