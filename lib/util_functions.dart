@@ -9,6 +9,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:hive/hive.dart';
 
 import 'circular_progress_indicator.dart';
 import 'models/api_error_model.dart';
@@ -112,7 +113,11 @@ Future<void> handleLogoutOrRestart({
     if (facebookAuth) await FacebookAuth.instance.logOut();
     if (googleSignIn) await GoogleSignIn().signOut();
     await OneSignal.shared.disablePush(true);
-    await GetStorage().erase();
+    try {
+      await GetStorage().erase();
+    } catch (e) {
+      Hive.box('LocalStorage').deleteFromDisk();
+    }
   }
   await Get.deleteAll(force: true);
   Phoenix.rebirth(Get.context!);

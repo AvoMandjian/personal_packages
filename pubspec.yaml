@@ -27,6 +27,7 @@ dependencies:
   pinch_zoom_image_last: 0.4.1
   shadowed_image: 1.0.3
   flutter_phoenix: 1.0.0
+  hive: 2.0.5
   flutter: 
     sdk: flutter
 
