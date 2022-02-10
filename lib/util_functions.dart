@@ -43,7 +43,7 @@ void openLoader({double? value, Color? color}) {
 void closeLoader() {
   Get.closeAllSnackbars();
   Future.delayed(
-    const Duration(milliseconds: 350),
+    const Duration(milliseconds: 500),
     () => Get.back(),
   );
 }
