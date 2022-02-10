@@ -120,8 +120,8 @@ Future<void> handleLogoutOrRestart({
       await GetStorage().erase();
       log('GETSTORAGE DELETED');
     } else {
-      await Hive.box('LocalStorage').deleteFromDisk();
-      log('HIVE DELETED');
+      // await Hive.box('LocalStorage').deleteFromDisk();
+      // log('HIVE DELETED');
     }
   }
   await Get.deleteAll(force: true);
