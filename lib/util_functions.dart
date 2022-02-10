@@ -18,6 +18,7 @@ import 'models/ip_details.dart';
 
 void openLoader({double? value, Color? color}) {
   Get.closeAllSnackbars();
+  log('Current Route\n\n\n${Get.currentRoute.contains('openLoader')}');
   if (!Get.currentRoute.contains('openLoader')) {
     Get.to(
       () => GestureDetector(
@@ -42,6 +43,7 @@ void openLoader({double? value, Color? color}) {
 
 void closeLoader() {
   Get.closeAllSnackbars();
+  log('Current Route\n\n\n${Get.currentRoute.contains('openLoader')}');
   if (Get.currentRoute.contains('openLoader')) {
     Get.back();
   }
