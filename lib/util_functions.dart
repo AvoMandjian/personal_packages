@@ -18,35 +18,37 @@ import 'models/ip_details.dart';
 
 void openLoader({double? value, Color? color}) {
   Get.closeAllSnackbars();
-  log('Current Route\n\n\n${Get.currentRoute}');
-  if (!Get.currentRoute.contains('openLoader')) {
-    Get.to(
-      () => GestureDetector(
-        onLongPress: () => Get.back(),
-        child: Container(
-          color: Colors.black45,
-          child: BuildCircularProgressIndicator(
-            color: color,
-            value: value,
+  Future.delayed(const Duration(milliseconds: 100), () {
+    if (!Get.currentRoute.contains('openLoader')) {
+      Get.to(
+        () => GestureDetector(
+          onLongPress: () => Get.back(),
+          child: Container(
+            color: Colors.black45,
+            child: BuildCircularProgressIndicator(
+              color: color,
+              value: value,
+            ),
           ),
         ),
-      ),
-      opaque: false,
-      fullscreenDialog: true,
-      duration: const Duration(
-        seconds: 0,
-      ),
-      routeName: 'openLoader',
-    );
-  }
+        opaque: false,
+        fullscreenDialog: true,
+        duration: const Duration(
+          seconds: 0,
+        ),
+        routeName: 'openLoader',
+      );
+    }
+  });
 }
 
 void closeLoader() {
   Get.closeAllSnackbars();
-  log('Current Route\n\n\n${Get.currentRoute}');
-  if (Get.currentRoute.contains('openLoader')) {
-    Get.back();
-  }
+  Future.delayed(const Duration(milliseconds: 100), () {
+    if (Get.currentRoute.contains('openLoader')) {
+      Get.back();
+    }
+  });
 }
 
 class HexColor extends Color {
