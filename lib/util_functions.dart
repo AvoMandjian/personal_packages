@@ -110,15 +110,16 @@ Future<void> handleLogoutOrRestart({
   bool facebookAuth = false,
   bool googleSignIn = false,
   bool logOut = true,
+  bool isGetStorage = true,
 }) async {
   if (logOut) {
     if (facebookAuth) await FacebookAuth.instance.logOut();
     if (googleSignIn) await GoogleSignIn().signOut();
     await OneSignal.shared.disablePush(true);
-    try {
+    if (isGetStorage) {
       await GetStorage().erase();
       log('GETSTORAGE DELETED');
-    } catch (e) {
+    } else {
       await Hive.box('LocalStorage').deleteFromDisk();
       log('HIVE DELETED');
     }
