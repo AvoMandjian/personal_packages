@@ -42,10 +42,9 @@ void openLoader({double? value, Color? color}) {
 
 void closeLoader() {
   Get.closeAllSnackbars();
-  Future.delayed(
-    const Duration(milliseconds: 500),
-    () => Get.back(),
-  );
+  if (Get.currentRoute.contains('openLoader')) {
+    Get.back();
+  }
 }
 
 class HexColor extends Color {
