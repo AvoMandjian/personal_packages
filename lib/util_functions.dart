@@ -117,8 +117,10 @@ Future<void> handleLogoutOrRestart({
     await OneSignal.shared.disablePush(true);
     try {
       await GetStorage().erase();
+      log('GETSTORAGE DELETED');
     } catch (e) {
-      Hive.box('LocalStorage').deleteFromDisk();
+      await Hive.box('LocalStorage').deleteFromDisk();
+      log('HIVE DELETED');
     }
   }
   await Get.deleteAll(force: true);
