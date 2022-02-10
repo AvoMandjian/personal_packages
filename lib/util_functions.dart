@@ -42,7 +42,10 @@ void openLoader({double? value, Color? color}) {
 
 void closeLoader() {
   Get.closeAllSnackbars();
-  Get.back();
+  Future.delayed(
+    const Duration(milliseconds: 350),
+    () => Get.back(),
+  );
 }
 
 class HexColor extends Color {
