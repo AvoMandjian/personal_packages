@@ -10,7 +10,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:hive/hive.dart';
-
+import 'package:responsive_framework/responsive_framework.dart' as rf;
 import 'circular_progress_indicator.dart';
 import 'models/api_error_model.dart';
 import 'models/api_success_model.dart';
@@ -233,3 +233,19 @@ void getSnackbarErrorDelayed(
 // }
 
 void getBack() => Get.back();
+
+/// ResponsiveBreakpoint name: MOBILE
+double getValueSmallerThan(
+    context, double defaultValue, double conditionValue) {
+  return rf.ResponsiveValue(
+        context,
+        defaultValue: defaultValue,
+        valueWhen: [
+          rf.Condition.smallerThan(
+            name: rf.MOBILE,
+            value: conditionValue,
+          )
+        ],
+      ).value ??
+      0.0;
+}
