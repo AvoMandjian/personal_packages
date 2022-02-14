@@ -18,16 +18,31 @@ import 'models/ip_details.dart';
 
 void openLoader({double? value, Color? color}) {
   if (!Get.currentRoute.contains('openLoader')) {
-    Get.closeCurrentSnackbar().then(
-      (_) => Get.to(
+    if (Get.isSnackbarOpen) {
+      Get.closeCurrentSnackbar().then(
+        (value) => Get.to(
+          () => GestureDetector(
+            onLongPress: () => Get.back(),
+            child: Container(
+              color: Colors.black45,
+              child: const BuildCircularProgressIndicator(),
+            ),
+          ),
+          opaque: false,
+          fullscreenDialog: true,
+          duration: const Duration(
+            seconds: 0,
+          ),
+          routeName: 'openLoader',
+        ),
+      );
+    } else {
+      Get.to(
         () => GestureDetector(
           onLongPress: () => Get.back(),
           child: Container(
             color: Colors.black45,
-            child: BuildCircularProgressIndicator(
-              color: color,
-              value: value,
-            ),
+            child: const BuildCircularProgressIndicator(),
           ),
         ),
         opaque: false,
@@ -36,14 +51,18 @@ void openLoader({double? value, Color? color}) {
           seconds: 0,
         ),
         routeName: 'openLoader',
-      ),
-    );
+      );
+    }
   }
 }
 
 void closeLoader() {
   if (Get.currentRoute.contains('openLoader')) {
-    Get.closeCurrentSnackbar().then((value) => Get.back());
+    if (Get.isSnackbarOpen) {
+      Get.closeCurrentSnackbar().then((value) => Get.back());
+    } else {
+      Get.back();
+    }
   }
 }
 
