@@ -43,7 +43,7 @@ void openLoader({double? value, Color? color}) {
 void closeLoader() {
   Get.closeAllSnackbars();
   if (Get.currentRoute.contains('openLoader')) {
-    Get.back();
+    Get.closeCurrentSnackbar().then((value) => Get.back());
   }
 }
 
