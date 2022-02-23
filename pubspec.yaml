@@ -12,7 +12,7 @@ dependencies:
   flutter_facebook_auth: 4.0.1
   get: 4.6.1
   get_storage: 2.0.3
-  google_sign_in: 5.2.3
+  google_sign_in: 5.2.4
   http: 0.13.4
   intl_phone_number_input: 0.7.0+2
   line_icons: 2.0.1
