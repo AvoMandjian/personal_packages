@@ -89,6 +89,7 @@ getSnackbarError(
   Uri? requestUri,
 }) {
   log('\nERROR\n\n\t\tREQUEST:\n\t\t\t$requestUri\n\t\tTITLE:\n\t\t\t${apiError?.error.title ?? title}\n\t\tMESSAGE:\n\t\t\t${apiError?.error.message ?? message}');
+  String messageInternal = apiError?.error.message ?? message;
   if (!Get.isSnackbarOpen) {
     return Get.snackbar(
       apiError?.error.title ?? title,
@@ -100,7 +101,7 @@ getSnackbarError(
       colorText: Colors.white,
     );
   }
-  if (message.toLowerCase().contains('token')) {
+  if (messageInternal.toLowerCase().contains('token')) {
     Future.delayed(
       const Duration(seconds: 1),
       () => handleLogoutOrRestart(
