@@ -9,7 +9,7 @@ environment:
 dependencies: 
   cached_network_image: 3.2.0
   extended_image: 6.0.1
-  flutter_facebook_auth: 4.0.1
+  flutter_facebook_auth: ^4.1.1
   get: 4.6.1
   get_storage: 2.0.3
   google_sign_in: 5.2.4
@@ -26,7 +26,7 @@ dependencies:
   pinch_zoom_image_last: 0.4.1
   shadowed_image: 1.0.3
   flutter_phoenix: 1.0.0
-  hive: 2.0.5
+  hive: ^2.0.6
   responsive_framework: 0.1.7
   flutter: 
     sdk: flutter

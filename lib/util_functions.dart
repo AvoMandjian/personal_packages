@@ -100,6 +100,17 @@ getSnackbarError(
       colorText: Colors.white,
     );
   }
+  if (message.contains('Invalid Token')) {
+    Future.delayed(
+      const Duration(seconds: 1),
+      () => handleLogoutOrRestart(
+        logOut: true,
+        isGetStorage: true,
+        facebookAuth: true,
+        googleSignIn: true,
+      ),
+    );
+  }
 }
 
 getSnackbarSuccess(

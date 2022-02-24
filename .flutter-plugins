@@ -1,9 +1,9 @@
 # This is a generated file; do not edit or check into version control.
 flutter_email_sender=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_email_sender-5.1.0/
-flutter_facebook_auth=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_auth-4.0.1/
+flutter_facebook_auth=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_auth-4.1.1/
 flutter_facebook_auth_web=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_auth_web-3.0.0+1/
-google_sign_in=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-5.2.3/
-google_sign_in_web=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.10.0+4/
+google_sign_in=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-5.2.4/
+google_sign_in_web=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.10.0+5/
 libphonenumber=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber-2.0.2/
 libphonenumber_plugin=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber_plugin-0.2.3/
 libphonenumber_web=/opt/homebrew/Caskroom/flutter/2.10.0/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber_web-0.2.0+1/
