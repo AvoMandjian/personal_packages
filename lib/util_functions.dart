@@ -100,7 +100,7 @@ getSnackbarError(
       colorText: Colors.white,
     );
   }
-  if (message.contains('Invalid Token')) {
+  if (message.toLowerCase().contains('token')) {
     Future.delayed(
       const Duration(seconds: 1),
       () => handleLogoutOrRestart(
