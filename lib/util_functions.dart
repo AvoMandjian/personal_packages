@@ -152,9 +152,14 @@ Future<void> handleLogoutOrRestart({
       await GetStorage().erase();
       log('GETSTORAGE DELETED');
     } catch (e) {
+      log(e.toString());
+    }
+    try {
       await Hive.box('LocalStorage').deleteFromDisk();
       await Hive.openBox('LocalStorage');
       log('HIVE DELETED');
+    } catch (e) {
+      log(e.toString());
     }
 
     // if (isGetStorage) {
