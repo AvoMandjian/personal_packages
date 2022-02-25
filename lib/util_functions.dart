@@ -147,14 +147,24 @@ Future<void> handleLogoutOrRestart({
     if (facebookAuth) await FacebookAuth.instance.logOut();
     if (googleSignIn) await GoogleSignIn().signOut();
     await OneSignal.shared.disablePush(true);
-    if (isGetStorage) {
+
+    try {
       await GetStorage().erase();
       log('GETSTORAGE DELETED');
-    } else {
+    } catch (e) {
       await Hive.box('LocalStorage').deleteFromDisk();
       await Hive.openBox('LocalStorage');
       log('HIVE DELETED');
     }
+
+    // if (isGetStorage) {
+    //   await GetStorage().erase();
+    //   log('GETSTORAGE DELETED');
+    // } else {
+    //   await Hive.box('LocalStorage').deleteFromDisk();
+    //   await Hive.openBox('LocalStorage');
+    //   log('HIVE DELETED');
+    // }
   }
   await Get.deleteAll(force: true);
   Phoenix.rebirth(Get.context!);
