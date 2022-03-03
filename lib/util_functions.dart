@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
-// import 'package:get_storage/get_storage.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'package:onesignal_flutter/onesignal_flutter.dart';
@@ -149,7 +149,7 @@ Future<void> handleLogoutOrRestart({
     await OneSignal.shared.disablePush(true);
 
     try {
-      // await GetStorage().erase();
+      await GetStorage().erase();
       log('GETSTORAGE DELETED');
     } catch (e) {
       log(e.toString());
@@ -171,7 +171,7 @@ Future<void> handleLogoutOrRestart({
     //   log('HIVE DELETED');
     // }
   }
-  Get.deleteAll(force: true);
+  await Get.deleteAll(force: true);
   Phoenix.rebirth(Get.context!);
   Get.reset();
   Get.reloadAll(force: true);
