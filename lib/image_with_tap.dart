@@ -38,7 +38,7 @@ class BuildImageWithTap extends StatelessWidget {
       ),
       onTap: () {
         Get.to(
-          BuildImageOnTap(
+          () => BuildImageOnTap(
             image: image,
           ),
           opaque: false,
