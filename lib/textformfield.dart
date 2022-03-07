@@ -15,9 +15,11 @@ class BuildTextFormField extends StatelessWidget {
   final TextStyle? hintTextStyle;
   final int paddingBetweenLabelAndInput;
   final Widget? suffixIcon;
+  final TextInputAction? textInputAction;
   const BuildTextFormField({
     Key? key,
     this.enabled = true,
+    this.textInputAction,
     required this.hintText,
     this.labelText,
     this.controller,
@@ -52,6 +54,7 @@ class BuildTextFormField extends StatelessWidget {
               height: paddingBetweenLabelAndInput.toDouble(),
             ),
             TextFormField(
+              textInputAction: textInputAction,
               textCapitalization: textCapitalization ?? TextCapitalization.none,
               enabled: enabled,
               inputFormatters: inputFormatters,
