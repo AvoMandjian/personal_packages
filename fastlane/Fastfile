@@ -1,0 +1,33 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+  lane :git do
+    flutter_version_manager(
+      arguments: "-minor",
+      yml: "./version.yml",
+      pubspec: "./example_pubspec.yaml"
+      )
+    push_to_git_remote(
+        remote: "main",         # optional, default: "origin"
+        # local_branch: "develop",  # optional, aliased by "branch", default is set to current branch
+        # remote_branch: "develop", # optional, default is set to local_branch
+        # force: true,    # optional, default: false
+        # force_with_lease: true,   # optional, default: false
+        # tags: false,    # optional, default: true
+        no_verify: true,# optional, default: false
+        # set_upstream: true        # optional, default: false
+      )
+    # add actions here: https://docs.fastlane.tools/actions
+end

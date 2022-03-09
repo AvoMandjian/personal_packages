@@ -70,6 +70,7 @@ class BuildTextFormField extends StatelessWidget {
                       if (value?.isNotEmpty ?? false) {
                         return null;
                       } else {
+                        focusNode?.requestFocus();
                         return 'Required';
                       }
                     }
