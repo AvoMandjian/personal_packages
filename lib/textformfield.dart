@@ -9,6 +9,7 @@ class BuildTextFormField extends StatelessWidget {
   final TextInputType? textInputType;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String?)? validator;
+  final bool hasValidator;
   final int bottomPadding;
   final TextCapitalization? textCapitalization;
   final TextStyle? labelTextStyle;
@@ -19,19 +20,20 @@ class BuildTextFormField extends StatelessWidget {
   const BuildTextFormField({
     Key? key,
     this.enabled = true,
-    this.textInputAction,
     required this.hintText,
     this.labelText,
     this.controller,
     this.textInputType,
     this.inputFormatters,
     this.validator,
+    this.hasValidator = false,
     this.bottomPadding = 0,
     this.textCapitalization,
     this.labelTextStyle,
     this.hintTextStyle,
     this.paddingBetweenLabelAndInput = 0,
     this.suffixIcon,
+    this.textInputAction,
   }) : super(key: key);
 
   @override
@@ -60,7 +62,15 @@ class BuildTextFormField extends StatelessWidget {
               inputFormatters: inputFormatters,
               obscureText: textInputType == TextInputType.visiblePassword,
               keyboardType: textInputType,
-              validator: validator,
+              validator: hasValidator
+                  ? (String? value) {
+                      if (value?.isEmpty ?? false) {
+                        return null;
+                      } else {
+                        return 'Required';
+                      }
+                    }
+                  : validator,
               controller: controller,
               decoration: InputDecoration(
                 hintText: hintText,
