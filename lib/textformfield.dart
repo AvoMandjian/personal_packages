@@ -17,6 +17,7 @@ class BuildTextFormField extends StatelessWidget {
   final int paddingBetweenLabelAndInput;
   final Widget? suffixIcon;
   final TextInputAction? textInputAction;
+  final FocusNode? focusNode;
   const BuildTextFormField({
     Key? key,
     this.enabled = true,
@@ -34,6 +35,7 @@ class BuildTextFormField extends StatelessWidget {
     this.paddingBetweenLabelAndInput = 0,
     this.suffixIcon,
     this.textInputAction,
+    this.focusNode,
   }) : super(key: key);
 
   @override
@@ -62,6 +64,7 @@ class BuildTextFormField extends StatelessWidget {
               inputFormatters: inputFormatters,
               obscureText: textInputType == TextInputType.visiblePassword,
               keyboardType: textInputType,
+              focusNode: focusNode,
               validator: hasValidator
                   ? (String? value) {
                       if (value?.isNotEmpty ?? false) {
