@@ -64,7 +64,7 @@ class BuildTextFormField extends StatelessWidget {
               keyboardType: textInputType,
               validator: hasValidator
                   ? (String? value) {
-                      if (value?.isEmpty ?? false) {
+                      if (value?.isNotEmpty ?? false) {
                         return null;
                       } else {
                         return 'Required';
