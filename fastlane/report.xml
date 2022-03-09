@@ -4,5 +4,15 @@
     
     
     
+      
+      <testcase classname="fastlane.lanes" name="0: flutter_version_manager" time="0.029282">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: push_to_git_remote" time="2.408545">
+        
+      </testcase>
+    
   </testsuite>
 </testsuites>

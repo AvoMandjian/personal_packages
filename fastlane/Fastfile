@@ -15,18 +15,19 @@
 
   lane :git do
     flutter_version_manager(
-      arguments: "-minor",
-      yml: "./version.yml",
-      pubspec: "./example_pubspec.yaml"
+      arguments: "-patch",
+      yml: "/Users/avomandjian/Documents/personal/packages/personal_packages/version.yml",
+      pubspec: "/Users/avomandjian/Documents/personal/packages/personal_packages/pubspec.yaml",
+      # git_repo: "https://github.com/AvoMandjian/personal_packages.git"
       )
     push_to_git_remote(
-        remote: "main",         # optional, default: "origin"
+        # remote: "https://github.com/AvoMandjian/personal_packages.git",         # optional, default: "origin"
         # local_branch: "develop",  # optional, aliased by "branch", default is set to current branch
         # remote_branch: "develop", # optional, default is set to local_branch
         # force: true,    # optional, default: false
         # force_with_lease: true,   # optional, default: false
         # tags: false,    # optional, default: true
-        no_verify: true,# optional, default: false
+        # no_verify: true,# optional, default: false
         # set_upstream: true        # optional, default: false
       )
     # add actions here: https://docs.fastlane.tools/actions
