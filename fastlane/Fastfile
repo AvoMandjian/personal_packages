@@ -20,6 +20,7 @@
       pubspec: "/Users/avomandjian/Documents/personal/packages/personal_packages/pubspec.yaml",
       # git_repo: "https://github.com/AvoMandjian/personal_packages.git"
       )
+    git_commit(path: '*',message: "ref")
     push_to_git_remote(
         # remote: "https://github.com/AvoMandjian/personal_packages.git",         # optional, default: "origin"
         # local_branch: "develop",  # optional, aliased by "branch", default is set to current branch

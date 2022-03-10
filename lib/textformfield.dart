@@ -18,6 +18,8 @@ class BuildTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextInputAction? textInputAction;
   final FocusNode? focusNode;
+  final ScrollController? scrollController;
+
   const BuildTextFormField({
     Key? key,
     this.enabled = true,
@@ -36,7 +38,10 @@ class BuildTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.textInputAction,
     this.focusNode,
-  }) : super(key: key);
+    this.scrollController,
+  })  : assert(
+            hasValidator ? scrollController != null : scrollController == null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +75,14 @@ class BuildTextFormField extends StatelessWidget {
                       if (value?.isNotEmpty ?? false) {
                         return null;
                       } else {
-                        focusNode?.requestFocus();
+                        scrollController!
+                            .animateTo(focusNode!.offset.distance - 15,
+                                duration: const Duration(milliseconds: 350),
+                                curve: Curves.fastOutSlowIn)
+                            .then(
+                              (value) => focusNode?.requestFocus(),
+                            );
+
                         return 'Required';
                       }
                     }
