@@ -41,7 +41,13 @@ class BuildTextFormField extends StatelessWidget {
     this.focusNode,
     this.scrollController,
     this.indexOfAutoscroll,
-  }) : super(key: key);
+  })  : assert(
+          hasValidator ? scrollController != null : scrollController == null,
+        ),
+        assert(
+          hasValidator ? indexOfAutoscroll != null : indexOfAutoscroll == null,
+        ),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
