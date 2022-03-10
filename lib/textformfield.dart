@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
 class BuildTextFormField extends StatelessWidget {
   final bool enabled;
@@ -18,7 +19,8 @@ class BuildTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextInputAction? textInputAction;
   final FocusNode? focusNode;
-  final ScrollController? scrollController;
+  final AutoScrollController? scrollController;
+  final int? indexOfTheTextField;
 
   const BuildTextFormField({
     Key? key,
@@ -39,8 +41,12 @@ class BuildTextFormField extends StatelessWidget {
     this.textInputAction,
     this.focusNode,
     this.scrollController,
+    this.indexOfTheTextField,
   })  : assert(
             hasValidator ? scrollController != null : scrollController == null),
+        assert(hasValidator
+            ? indexOfTheTextField != null
+            : indexOfTheTextField == null),
         super(key: key);
 
   @override
@@ -62,38 +68,60 @@ class BuildTextFormField extends StatelessWidget {
             SizedBox(
               height: paddingBetweenLabelAndInput.toDouble(),
             ),
-            TextFormField(
-              textInputAction: textInputAction,
-              textCapitalization: textCapitalization ?? TextCapitalization.none,
-              enabled: enabled,
-              inputFormatters: inputFormatters,
-              obscureText: textInputType == TextInputType.visiblePassword,
-              keyboardType: textInputType,
-              focusNode: focusNode,
-              validator: hasValidator
-                  ? (String? value) {
-                      if (value?.isNotEmpty ?? false) {
-                        return null;
-                      } else {
-                        scrollController!
-                            .animateTo(focusNode!.offset.distance - 15,
-                                duration: const Duration(milliseconds: 350),
-                                curve: Curves.fastOutSlowIn)
-                            .then(
-                              (value) => focusNode?.requestFocus(),
-                            );
-
-                        return 'Required';
-                      }
-                    }
-                  : validator,
-              controller: controller,
-              decoration: InputDecoration(
-                hintText: hintText,
-                hintStyle: hintTextStyle,
-                suffixIcon: suffixIcon,
-              ),
-            ),
+            hasValidator
+                ? AutoScrollTag(
+                    key: ValueKey(indexOfTheTextField),
+                    controller: scrollController!,
+                    index: indexOfTheTextField!,
+                    child: TextFormField(
+                      textInputAction: textInputAction,
+                      textCapitalization:
+                          textCapitalization ?? TextCapitalization.none,
+                      enabled: enabled,
+                      inputFormatters: inputFormatters,
+                      obscureText:
+                          textInputType == TextInputType.visiblePassword,
+                      keyboardType: textInputType,
+                      focusNode: focusNode,
+                      validator: hasValidator
+                          ? (String? value) {
+                              if (value?.isNotEmpty ?? false) {
+                                return null;
+                              } else {
+                                scrollController!
+                                    .scrollToIndex(indexOfTheTextField!,
+                                        preferPosition:
+                                            AutoScrollPosition.begin)
+                                    .then((value) => focusNode?.requestFocus());
+                                return 'Required';
+                              }
+                            }
+                          : validator,
+                      controller: controller,
+                      decoration: InputDecoration(
+                        hintText: hintText,
+                        hintStyle: hintTextStyle,
+                        suffixIcon: suffixIcon,
+                      ),
+                    ),
+                  )
+                : TextFormField(
+                    textInputAction: textInputAction,
+                    textCapitalization:
+                        textCapitalization ?? TextCapitalization.none,
+                    enabled: enabled,
+                    inputFormatters: inputFormatters,
+                    obscureText: textInputType == TextInputType.visiblePassword,
+                    keyboardType: textInputType,
+                    focusNode: focusNode,
+                    validator: validator,
+                    controller: controller,
+                    decoration: InputDecoration(
+                      hintText: hintText,
+                      hintStyle: hintTextStyle,
+                      suffixIcon: suffixIcon,
+                    ),
+                  ),
           ],
         ),
       ),
