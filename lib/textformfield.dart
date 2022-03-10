@@ -88,6 +88,7 @@ class BuildTextFormField extends StatelessWidget {
                               if (value?.isNotEmpty ?? false) {
                                 return null;
                               } else {
+                                print(MediaQuery.of(context).viewInsets.bottom);
                                 if (MediaQuery.of(context).viewInsets.bottom ==
                                     0) {
                                   scrollController!
