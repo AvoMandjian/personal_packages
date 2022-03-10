@@ -88,11 +88,15 @@ class BuildTextFormField extends StatelessWidget {
                               if (value?.isNotEmpty ?? false) {
                                 return null;
                               } else {
-                                scrollController!
-                                    .scrollToIndex(indexOfTheTextField!,
-                                        preferPosition:
-                                            AutoScrollPosition.begin)
-                                    .then((value) => focusNode?.requestFocus());
+                                if (MediaQuery.of(context).viewInsets.bottom ==
+                                    0) {
+                                  scrollController!
+                                      .scrollToIndex(indexOfTheTextField!,
+                                          preferPosition:
+                                              AutoScrollPosition.begin)
+                                      .then(
+                                          (value) => focusNode?.requestFocus());
+                                }
                                 return 'Required';
                               }
                             }
