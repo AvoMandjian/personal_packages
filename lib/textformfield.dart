@@ -83,21 +83,19 @@ class BuildTextFormField extends StatelessWidget {
                           textInputType == TextInputType.visiblePassword,
                       keyboardType: textInputType,
                       focusNode: focusNode,
-                      validator: hasValidator
-                          ? (String? value) {
-                              if (value?.isNotEmpty ?? false) {
-                                return null;
-                              } else {
-                                scrollController!
-                                    .scrollToIndex(indexOfAutoscroll!,
-                                        preferPosition:
-                                            AutoScrollPosition.begin)
-                                    .then((_) => focusNode?.requestFocus());
-
-                                return 'Required';
-                              }
-                            }
-                          : validator,
+                      validator: (String? value) {
+                        if (value?.isNotEmpty ?? false) {
+                          return null;
+                        } else {
+                          if (!scrollController!.isAutoScrolling) {
+                            scrollController!
+                                .scrollToIndex(indexOfAutoscroll!,
+                                    preferPosition: AutoScrollPosition.begin)
+                                .then((_) => focusNode?.requestFocus());
+                          }
+                          return 'Required';
+                        }
+                      },
                       controller: controller,
                       decoration: InputDecoration(
                         hintText: hintText,

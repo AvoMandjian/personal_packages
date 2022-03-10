@@ -5,17 +5,17 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: flutter_version_manager" time="0.035666">
+      <testcase classname="fastlane.lanes" name="0: flutter_version_manager" time="0.047827">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: git_commit" time="0.054794">
+      <testcase classname="fastlane.lanes" name="1: git_commit" time="0.05146">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: push_to_git_remote" time="1.374868">
+      <testcase classname="fastlane.lanes" name="2: push_to_git_remote" time="1.21547">
         
       </testcase>
     
