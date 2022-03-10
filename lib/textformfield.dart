@@ -1,6 +1,6 @@
+import 'package:ensure_visible_when_focused/ensure_visible_when_focused.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 class BuildTextFormField extends StatelessWidget {
@@ -21,7 +21,6 @@ class BuildTextFormField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final FocusNode? focusNode;
   final AutoScrollController? scrollController;
-  final int? indexOfTheTextField;
 
   const BuildTextFormField({
     Key? key,
@@ -42,13 +41,7 @@ class BuildTextFormField extends StatelessWidget {
     this.textInputAction,
     this.focusNode,
     this.scrollController,
-    this.indexOfTheTextField,
-  })  : assert(
-            hasValidator ? scrollController != null : scrollController == null),
-        assert(hasValidator
-            ? indexOfTheTextField != null
-            : indexOfTheTextField == null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +63,8 @@ class BuildTextFormField extends StatelessWidget {
               height: paddingBetweenLabelAndInput.toDouble(),
             ),
             hasValidator
-                ? AutoScrollTag(
-                    key: ValueKey(indexOfTheTextField),
-                    controller: scrollController!,
-                    index: indexOfTheTextField!,
+                ? EnsureVisibleWhenFocused(
+                    focusNode: focusNode!,
                     child: TextFormField(
                       textInputAction: textInputAction,
                       textCapitalization:
@@ -89,14 +80,7 @@ class BuildTextFormField extends StatelessWidget {
                               if (value?.isNotEmpty ?? false) {
                                 return null;
                               } else {
-                                if (!Get.focusScope!.hasFocus) {
-                                  scrollController!
-                                      .scrollToIndex(indexOfTheTextField!,
-                                          preferPosition:
-                                              AutoScrollPosition.begin)
-                                      .then(
-                                          (value) => focusNode?.requestFocus());
-                                }
+                                focusNode?.requestFocus();
                                 return 'Required';
                               }
                             }
