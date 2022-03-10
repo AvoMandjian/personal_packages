@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 class BuildTextFormField extends StatelessWidget {
@@ -88,9 +89,7 @@ class BuildTextFormField extends StatelessWidget {
                               if (value?.isNotEmpty ?? false) {
                                 return null;
                               } else {
-                                print(MediaQuery.of(context).viewInsets.bottom);
-                                if (MediaQuery.of(context).viewInsets.bottom ==
-                                    0) {
+                                if (!Get.focusScope!.hasFocus) {
                                   scrollController!
                                       .scrollToIndex(indexOfTheTextField!,
                                           preferPosition:
