@@ -7,9 +7,11 @@ import 'package:get/get.dart';
 
 class BuildImageOnTap extends StatelessWidget {
   final String image;
+  final Color? colorOfLoader;
   const BuildImageOnTap({
     Key? key,
     required this.image,
+    this.colorOfLoader,
   }) : super(key: key);
 
   @override
@@ -47,10 +49,10 @@ class BuildImageOnTap extends StatelessWidget {
                     loadStateChanged: (ExtendedImageState state) {
                       switch (state.extendedImageLoadState) {
                         case LoadState.loading:
-                          return const Center(
+                          return Center(
                             child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                Colors.red,
+                              valueColor: AlwaysStoppedAnimation<Color?>(
+                                colorOfLoader,
                               ),
                             ),
                           );

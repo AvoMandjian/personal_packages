@@ -87,12 +87,13 @@ class BuildTextFormField extends StatelessWidget {
                         if (value?.isNotEmpty ?? false) {
                           return null;
                         } else {
-                          print(!scrollController!.isAutoScrolling);
                           if (!scrollController!.isAutoScrolling) {
                             scrollController!
                                 .scrollToIndex(indexOfAutoscroll!,
                                     preferPosition: AutoScrollPosition.begin)
-                                .then((_) => focusNode?.requestFocus());
+                                .then(
+                                  (_) => focusNode?.requestFocus(),
+                                );
                           }
                           return 'Required';
                         }

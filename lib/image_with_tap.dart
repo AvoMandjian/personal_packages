@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:extended_image/extended_image.dart';
 
 import 'package:get/get.dart';
+import 'package:personal_packages/circular_progress_indicator.dart';
 
 import 'cached_network_image.dart';
 
@@ -52,9 +53,11 @@ class BuildImageWithTap extends StatelessWidget {
 
 class BuildImageOnTap extends StatelessWidget {
   final String image;
+  final Color? colorOfLoader;
   const BuildImageOnTap({
     Key? key,
     required this.image,
+    this.colorOfLoader,
   }) : super(key: key);
 
   @override
@@ -92,8 +95,10 @@ class BuildImageOnTap extends StatelessWidget {
                     loadStateChanged: (ExtendedImageState state) {
                       switch (state.extendedImageLoadState) {
                         case LoadState.loading:
-                          return const Center(
-                            child: CircularProgressIndicator(),
+                          return Center(
+                            child: BuildCircularProgressIndicator(
+                              color: colorOfLoader,
+                            ),
                           );
                         case LoadState.completed:
                           return null;
