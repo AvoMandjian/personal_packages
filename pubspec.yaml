@@ -1,5 +1,5 @@
 name: personal_packages
-version: 0.4.27+48629088
+version: 0.4.28+48629296
 homepage: https://github.com/AvoMandjian/personal_packages
 description: A new Flutter package project.
 environment: 
@@ -9,7 +9,7 @@ environment:
 dependencies: 
   cached_network_image: 3.2.0
   extended_image: 6.0.1
-  flutter_facebook_auth: ^4.1.1
+  flutter_facebook_auth: 4.1.2
   get: 4.6.1
   get_storage: 2.0.3
   google_sign_in: 5.2.4
