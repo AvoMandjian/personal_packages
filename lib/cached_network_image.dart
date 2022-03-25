@@ -11,11 +11,14 @@ class BuildCachedNetworkImage extends StatelessWidget {
   final Color? color;
   final BoxFit? fit;
   final int? memCacheWidth;
+  final Alignment? alignment;
+
   final int? memCacheHeight;
 
   const BuildCachedNetworkImage(
     this.imageUrl, {
     Key? key,
+    this.alignment,
     required this.width,
     required this.height,
     this.memCacheWidth,
@@ -27,6 +30,7 @@ class BuildCachedNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      alignment: alignment ?? Alignment.center,
       fit: fit,
       width: width,
       height: height,
