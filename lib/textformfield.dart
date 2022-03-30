@@ -21,6 +21,7 @@ class BuildTextFormField extends StatelessWidget {
   final FocusNode? focusNode;
   final AutoScrollController? scrollController;
   final int? indexOfAutoscroll;
+  final Function(String)? onFieldSubmitted;
   const BuildTextFormField({
     Key? key,
     this.enabled = true,
@@ -41,6 +42,7 @@ class BuildTextFormField extends StatelessWidget {
     this.focusNode,
     this.scrollController,
     this.indexOfAutoscroll,
+    this.onFieldSubmitted,
   })  : assert(
           hasValidator ? scrollController != null : scrollController == null,
         ),
@@ -74,6 +76,7 @@ class BuildTextFormField extends StatelessWidget {
                     controller: scrollController!,
                     index: indexOfAutoscroll!,
                     child: TextFormField(
+                      onFieldSubmitted: onFieldSubmitted,
                       textInputAction: textInputAction,
                       textCapitalization:
                           textCapitalization ?? TextCapitalization.none,
