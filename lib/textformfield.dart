@@ -110,6 +110,7 @@ class BuildTextFormField extends StatelessWidget {
                     ),
                   )
                 : TextFormField(
+                    onFieldSubmitted: onFieldSubmitted,
                     textInputAction: textInputAction,
                     textCapitalization:
                         textCapitalization ?? TextCapitalization.none,
