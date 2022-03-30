@@ -16,8 +16,8 @@
   lane :git do
     flutter_version_manager(
       arguments: "-patch",
-      yml: "/Users/avomandjian/Documents/personal/packages/personal_packages/version.yml",
-      pubspec: "/Users/avomandjian/Documents/personal/packages/personal_packages/pubspec.yaml",
+      yml: "/Users/avomandjian/Documents/Flutter config/packages/personal_packages/version.yml",
+      pubspec: "/Users/avomandjian/Documents/Flutter config/packages/personal_packages/pubspec.yaml",
       # git_repo: "https://github.com/AvoMandjian/personal_packages.git"
       )
     git_commit(path: '*',message: "ref")
