@@ -295,3 +295,5 @@ double getValueSmallerThan(
       ).value ??
       0.0;
 }
+
+bool isEn() => getLocale() == 'en';
