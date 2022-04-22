@@ -1,5 +1,5 @@
 name: personal_packages
-version: 0.4.32+50005059
+version: 0.4.33+50537323
 homepage: https://github.com/AvoMandjian/personal_packages
 description: A new Flutter package project.
 environment: 
@@ -29,6 +29,7 @@ dependencies:
   hive: 2.1.0
   responsive_framework: 0.1.7
   scroll_to_index: 2.1.1
+  shimmer: 2.0.0
   flutter: 
     sdk: flutter
 
