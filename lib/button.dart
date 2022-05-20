@@ -47,13 +47,12 @@ class BuildButton extends StatelessWidget {
                 padding: paddingAroundTheText ?? const EdgeInsets.all(0),
                 child: Align(
                   alignment: alignmentOfText ?? Alignment.center,
-                  child: BuildText(
+                  child: Text(
                     buttonText,
                     style: textStyle ??
                         const TextStyle(
                           fontFamily: 'MontserratSemiBold',
                           fontSize: 13,
-                          letterSpacing: 1.0,
                           color: Colors.white,
                         ),
                     maxLines: maxLines,

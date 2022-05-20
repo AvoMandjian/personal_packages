@@ -120,7 +120,7 @@ getSnackbarSuccess(
   String title = 'SUCCESS',
   String message = '',
   int seconds = 2,
-  Color backgroundColor = Colors.green,
+  Color? backgroundColor,
   Uri? requestUri,
 }) {
   log('\nSUCCESS\n\n\t\tREQUEST:\n\t\t\t$requestUri\n\t\tTITLE:\n\t\t\t${apiSuccess?.success.title ?? title}\n\t\tMESSAGE:\n\t\t\t${apiSuccess?.success.message ?? message}');
@@ -129,7 +129,7 @@ getSnackbarSuccess(
       apiSuccess?.success.title ?? title,
       apiSuccess?.success.message ?? message,
       duration: Duration(seconds: seconds),
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor ?? Colors.green,
       margin:
           EdgeInsets.only(top: 25, left: paddingGlobal, right: paddingGlobal),
       colorText: Colors.white,
@@ -242,6 +242,7 @@ void getSnackbarSuccessDelayed(
   String? message,
   String? title,
   Uri? requestUri,
+  Color? backgroundColor,
 }) {
   Future.delayed(
     const Duration(milliseconds: 500),
@@ -251,6 +252,7 @@ void getSnackbarSuccessDelayed(
       message: message ?? '',
       title: title ?? 'SUCCESS',
       requestUri: requestUri,
+      backgroundColor: backgroundColor,
     ),
   );
 }
