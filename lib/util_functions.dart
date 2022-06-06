@@ -104,12 +104,15 @@ getSnackbarError(
   if (messageInternal.toLowerCase().contains('token')) {
     Future.delayed(
       const Duration(seconds: 1),
-      () => handleLogoutOrRestart(
-        logOut: true,
-        isGetStorage: true,
-        facebookAuth: true,
-        googleSignIn: true,
-      ),
+      () => Get.context != null
+          ? handleLogoutOrRestart(
+              Get.context!,
+              logOut: true,
+              isGetStorage: true,
+              facebookAuth: true,
+              googleSignIn: true,
+            )
+          : {},
     );
   }
 }
@@ -137,7 +140,8 @@ getSnackbarSuccess(
   }
 }
 
-Future<void> handleLogoutOrRestart({
+Future<void> handleLogoutOrRestart(
+  BuildContext context, {
   bool facebookAuth = false,
   bool googleSignIn = false,
   bool logOut = true,
@@ -172,7 +176,7 @@ Future<void> handleLogoutOrRestart({
     // }
   }
   await Get.deleteAll(force: true);
-  Phoenix.rebirth(Get.context!);
+  Phoenix.rebirth(context);
   Get.reset();
   Get.reloadAll(force: true);
 }

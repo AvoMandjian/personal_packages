@@ -7,11 +7,13 @@ class BuildApiErrorWidget extends StatelessWidget {
     required this.function,
     required this.message,
     required this.myApp,
+    required this.context,
   }) : super(key: key);
 
   final Function() function;
   final String message;
   final Widget myApp;
+  final BuildContext context;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,7 @@ class BuildApiErrorWidget extends StatelessWidget {
                     style: TextStyle(color: Colors.red),
                   ),
                   onPressed: () async {
-                    await handleLogoutOrRestart();
+                    await handleLogoutOrRestart(context);
                   }),
             ),
         ],

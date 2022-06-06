@@ -22,9 +22,14 @@ class BuildTextFormField extends StatelessWidget {
   final AutoScrollController? scrollController;
   final int? indexOfAutoscroll;
   final Function(String)? onFieldSubmitted;
+  final Function(String)? onFieldChanged;
+  final bool? filled;
+  final Color? fillColor;
+  final bool withOpacity;
   const BuildTextFormField({
     Key? key,
     this.enabled = true,
+    this.withOpacity = true,
     required this.hintText,
     this.labelText,
     this.controller,
@@ -43,6 +48,9 @@ class BuildTextFormField extends StatelessWidget {
     this.scrollController,
     this.indexOfAutoscroll,
     this.onFieldSubmitted,
+    this.onFieldChanged,
+    this.filled,
+    this.fillColor,
   })  : assert(
           hasValidator ? scrollController != null : scrollController == null,
         ),
@@ -54,7 +62,7 @@ class BuildTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: enabled ? 1 : 0.2,
+      opacity: withOpacity ? (enabled ? 1 : 0.2) : 1,
       child: Padding(
         padding: EdgeInsetsDirectional.only(
           bottom: bottomPadding.toDouble(),
@@ -76,6 +84,7 @@ class BuildTextFormField extends StatelessWidget {
                     controller: scrollController!,
                     index: indexOfAutoscroll!,
                     child: TextFormField(
+                      onChanged: onFieldChanged,
                       onFieldSubmitted: onFieldSubmitted,
                       textInputAction: textInputAction,
                       textCapitalization:
@@ -106,10 +115,13 @@ class BuildTextFormField extends StatelessWidget {
                         hintText: hintText,
                         hintStyle: hintTextStyle,
                         suffixIcon: suffixIcon,
+                        filled: filled,
+                        fillColor: fillColor,
                       ),
                     ),
                   )
                 : TextFormField(
+                    onChanged: onFieldChanged,
                     onFieldSubmitted: onFieldSubmitted,
                     textInputAction: textInputAction,
                     textCapitalization:
@@ -125,6 +137,8 @@ class BuildTextFormField extends StatelessWidget {
                       hintText: hintText,
                       hintStyle: hintTextStyle,
                       suffixIcon: suffixIcon,
+                      filled: filled,
+                      fillColor: fillColor,
                     ),
                   ),
           ],
